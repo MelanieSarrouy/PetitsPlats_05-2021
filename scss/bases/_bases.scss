@@ -1,0 +1,35 @@
+/* Styles principaux */
+body {
+  font-family: $font-family-main;
+  font-size: $font-size-default;
+  color: black;
+  margin: auto;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+h1 {
+  font-size: 1.6rem;
+  color: $color-title;
+  font-weight: 700;
+}
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0
+}
+button {
+  cursor: pointer;
+}

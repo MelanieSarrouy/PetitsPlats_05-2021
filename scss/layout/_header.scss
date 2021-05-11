@@ -1,0 +1,12 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+  &__title {
+    font-family: $font-family-title;
+    font-size: 2.25rem;
+    padding-top: .5rem;
+  }
+}

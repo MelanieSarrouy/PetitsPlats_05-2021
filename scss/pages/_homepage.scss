@@ -1,0 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $font-family-main;
+  max-width: 1440px;
+  margin: auto;
+  padding: 2.5rem 7vw 2.5rem;
+  max-width: 1240px;
+
+  @import "../layout/header";
+  @import "../layout/main";
+}
