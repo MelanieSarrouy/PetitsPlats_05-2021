@@ -1,0 +1,48 @@
+.header2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    &__input {
+      width: 100%;
+      background-color: $color-bg;
+      border: none;
+      padding: 1.4rem 4rem 1.5rem 1.3rem;
+      border-radius: .3rem;
+      font-size: 1.12rem;
+      font-family: $font-family-main;
+      outline: none;
+    }
+    &__button {
+      position: absolute;
+      right: 0rem;
+      border: none;
+      background-color: $color-bg;
+      // cursor: pointer;
+      & span {
+        font-size: 2rem;
+        padding: .8rem;
+      }
+    }
+  }
+  &__filters {
+    display: flex;
+    padding-top: 1.5rem;
+  }
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  column-gap: 4%;
+  row-gap: 3rem;
+  padding-top: 1.5rem;
+}
+@import "../components/dropdown";
+@import "../components/recipes";

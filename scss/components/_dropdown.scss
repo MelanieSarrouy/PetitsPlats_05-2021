@@ -1,0 +1,58 @@
+.dropdown {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1.25rem;
+  border-radius: .3rem;
+  &--ingredients {
+    background-color: $color-ingredients;
+  }
+  &--appareil {
+    background-color: $color-appareil;
+  }
+  &--ustensiles {
+    background-color: $color-ustensiles;
+  }
+  &__form {
+    padding: 0 1rem;
+    height: 4.3rem;
+    display: flex; 
+    &__input {
+      background-color: $color-ingredients;
+      color: white;
+      outline: none;
+      border: none;
+      width: 7rem;
+      &--ingredients {
+        background-color: $color-ingredients;
+      }
+      &--appareil {
+        background-color: $color-appareil;
+      }
+      &--ustensiles {
+        background-color: $color-ustensiles;
+      }
+      &::placeholder {
+        font-family: $font-family-main;
+        color: white;
+        font-size: 1.15rem;
+      }
+    }
+    &__icon {
+      border: none;
+      background-color: $color-ingredients;
+      color: white;
+      font-size: 1.15rem;
+      &--ingredients {
+        background-color: $color-ingredients;
+      }
+      &--appareil {
+        background-color: $color-appareil;
+      }
+      &--ustensiles {
+        background-color: $color-ustensiles;
+      }
+    }
+  }
+}

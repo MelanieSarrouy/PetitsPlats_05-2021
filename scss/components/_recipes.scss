@@ -1,0 +1,81 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  border-radius: .3rem;
+  overflow: hidden;
+  max-width: 380px;
+  &__anchor {
+    cursor: pointer;
+  }
+}
+.bg {
+  background-color: #c7bebe;
+  height: 178px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background-color: $color-bg;
+  height: 186px;
+  box-sizing: border-box;
+  overflow: hidden;
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.15rem;
+    padding-bottom: 1.25rem;
+    padding-top: .2rem;
+    max-width: 380px;
+    box-sizing: border-box;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &__time {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      align-self: center;
+      &__txt {
+        padding-left: .5rem;
+      }
+    }
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 1rem;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+  }
+  &__description {
+    font-family: $font-family-recipe;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    max-width: 171px;
+    height: 109px;
+    box-sizing: border-box;
+    padding-right: 1rem;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.ingredientsList {
+  &__item {
+    display: flex;
+    line-height: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.8rem;
+
+    &__name {
+      font-weight: 700;
+    }
+  }
+}

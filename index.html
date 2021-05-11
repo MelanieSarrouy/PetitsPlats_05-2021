@@ -11,6 +11,7 @@
     <meta name="description" content="application de recherche de recettes de cuisine" />
             
     <!-- Feuiles de styles -->
+    <script src="https://kit.fontawesome.com/c97c76d068.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">      
     <link rel="stylesheet" href="./css/styles.min.css" />
@@ -24,11 +25,59 @@
       <h1 class="header__title">Les Petits Plats</h1>
     </header>
     <main class="main">
-      <header>
+      <header class="header2">
+        <form method="GET" action="#" id="recherche" class="header2__form">
+          <label for="search" class="header2__form__label"></label>
+          <input type="search" name="ville" id="search" class="header2__form__input" minlength="3" maxlength="25"
+            placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" required />
+          <button type="submit" name="bouton-rechercher" id="bouton-rechercher" class="header2__form__button">
+            <span class="iconrechercher"><i class="fas fa-search"></i></span>
+          </button>
+        </form> 
+        <div class="header2__filters">
+          <div class="dropdown dropdown--ingredients">
+            <form method="GET" action="#" id="searchIngredients" class="dropdown__form">
+              <label for="ingredients" class="dropdown__form__label">
+                <h2 class="sr-only">Ingrédients</h2></label>
+              </label>
+              <input type="search" name="ingredients" id="ingredients" class="dropdown__form__input dropdown__form__input--ingredients" placeholder="Ingrédients" />
+              <button class="dropdown__form__icon dropdown__form__icon--ingredients iconDown"><i class="fas fa-chevron-down"></i></button>
+            </form> 
+            <ul class="dropdown__menu">
+              <!-- <li class="dropdown__menu__item dropdown__menu__item--ingredients"><a href="#"></a></li> -->
+            </ul>
+          </div>
+          <div class="dropdown dropdown--appareil">
+            <form method="GET" action="#" id="searchAppareil" class="dropdown__form">
+              <label for="appareil" class="dropdown__form__label">
+                <h2 class="sr-only">Appareil</h2></label>
+              <input type="search" name="appareil" id="appareil" class="dropdown__form__input dropdown__form__input--appareil" placeholder="Appareil" />
+              <button class="dropdown__form__icon dropdown__form__icon--appareil iconDown"><i class="fas fa-chevron-down"></i></button>
+            </form> 
+            <ul class="dropdown__menu">
+              <!-- <li class="dropdown__menu__item dropdown__menu__item--appareil"><a href="#"></a></li> -->
+            </ul>
+          </div>
+          <div class="dropdown dropdown--ustensiles">
+            <form method="GET" action="#" id="searchUstensiles" class="dropdown__form">
+              <label for="Ustensiles" class="dropdown__form__label">
+                <h2 class="sr-only">Ustensiles</h2></label>
+              </label>
+              <input type="search" name="ustensiles" id="ustensiles" class="dropdown__form__input dropdown__form__input--ustensiles" placeholder="Ustensiles" />
+              <button class="dropdown__form__icon dropdown__form__icon--ustensiles iconDown"><i class="fas fa-chevron-down"></i></button>
+            </form> 
+            <ul class="dropdown__menu">
+              <!-- <li class="dropdown__menu__item dropdown__menu__item--ustensiles"><a href="#"></a></li> -->
+            </ul>
+          </div>
+
+
+
+        </div>      
 
       </header>
       <section class="section">
-        
+
       </section>
     </main>
 

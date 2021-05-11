@@ -20,11 +20,12 @@ const recipes = [
           },
           {
               "ingredient" : "Sucre",
-              "quantite" : 30,
+              "quantity" : 30,
               "unit" : "grammes"
           },
           {
-              "ingredient": "Glaçons"
+              "ingredient": "Glaçons",
+              "quantity" : 2
           }
       ],
       "time": 10,
@@ -1723,3 +1724,4 @@ const recipes = [
   }
 ]
 
+export { recipes }
