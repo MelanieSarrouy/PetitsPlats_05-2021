@@ -53,12 +53,11 @@ function displayIngredients(ingredients, ulIngredients) {
       quantity.innerHTML = '&nbsp' + ':' + ' ' + `${ingredient.quantity}`
     }
     if (ingredient.unit != undefined) {
-      quantity.innerHTML += ' ' + ` ${ingredient.unit}`
+      if (ingredient.unit == 'grammes') {
+        quantity.innerHTML += ' ' + 'gr'
+      } else {
+        quantity.innerHTML += ' ' + ` ${ingredient.unit}`
+      }
     }
-
-    // if (ingredient.unit == 'grammes') {
-    //   quantity.replace('grammes', 'g')
-    // }
-
   }
 }
