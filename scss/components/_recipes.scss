@@ -27,18 +27,20 @@
     font-size: 1.15rem;
     padding-bottom: 1.25rem;
     padding-top: .2rem;
-    max-width: 380px;
+    line-height: 1.5rem;
     box-sizing: border-box;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
-
+    &__h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     &__time {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-weight: 700;
       align-self: center;
+      padding-left: 1rem;
       &__txt {
         padding-left: .5rem;
       }
@@ -56,12 +58,9 @@
     font-family: $font-family-recipe;
     font-size: 0.75rem;
     line-height: 1rem;
-    max-width: 171px;
     height: 109px;
     box-sizing: border-box;
     padding-right: 1rem;
-    -webkit-line-clamp: 8;
-    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -72,10 +71,13 @@
     line-height: 1rem;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 0.8rem;
-
+    font-size: 0.75rem;
     &__name {
       font-weight: 700;
+    }
+    &__quantity {
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }

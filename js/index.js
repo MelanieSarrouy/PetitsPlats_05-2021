@@ -2,62 +2,47 @@ import { recipes } from './recipes.js'
 
 import { Element } from './element.js'
 
+import { createACard } from './createACard.js'
+
 createACard()
 
-function createACard() {
-  const section = document.querySelector('.section')
+const ingredientsDown = document.getElementById('iconDown-ingredients')
+const ingredientsUp = document.getElementById('iconUp-ingredients')
+
+let ALLingredients = []
+
+ingredientsDown.addEventListener('click', () => allIngredients())
+
+function allIngredients() {
+  ingredientsDown.style.display = 'none'
+  ingredientsUp.style.display = 'block'
   for (let i = 0; i < recipes.length; i++) {
-    const article = new Element('article', 'article', 'article').elem
-    section.appendChild(article)
-    const anchor = new Element('anchor', 'a', 'article__anchor').elem
-    article.appendChild(anchor)
-    anchor.href = '#'
-    const background = new Element('background', 'div', 'bg').elem
-    anchor.appendChild(background)
-    const divDescription = new Element('divDescription', 'div', 'description').elem
-    anchor.appendChild(divDescription)
-    const divTitle = new Element('divTitle', 'div', 'description__title').elem
-    divDescription.appendChild(divTitle)
-    const title = new Element('title', 'h3', 'description__title__h3').elem
-    divTitle.appendChild(title)
-    title.textContent = `${recipes[i].name}`
-    const divTime = new Element('divTime', 'div', 'description__title__time').elem
-    divTitle.appendChild(divTime)
-    const iconTime = new Element('iconTime', 'i', 'far').elem
-    divTime.appendChild(iconTime)
-    iconTime.classList.add('fa-clock')
-    const time = new Element('time', 'p', 'description__title__time__txt').elem
-    divTime.appendChild(time)
-    time.textContent = `${recipes[i].time} min`
-    const divdescriptionContent = new Element('divdescriptionContent', 'div', 'description__content').elem
-    divDescription.appendChild(divdescriptionContent)
-    const ulIngredients = new Element('ulIngredients', 'ul', 'ingredientsList').elem
-    divdescriptionContent.appendChild(ulIngredients)
-    displayIngredients(recipes[i].ingredients, ulIngredients)
-    const description = new Element('description', 'p', 'description__description').elem
-    divdescriptionContent.appendChild(description)
-    description.textContent = `${recipes[i].description}`
+    let ingredientsRecipe = recipes[i].ingredients
+    let arrayIngred = []
+    for (let ingredient of ingredientsRecipe) {
+      let ingred = ingredient.ingredient
+      arrayIngred.push(ingred)
+    }
+    arrayIngred.forEach(ingr => ALLingredients.push(ingr))
+  }
+  let AllingredientsUnique = [...new Set(ALLingredients)]
+  
+  const ul = document.getElementById('menu-ingredients')
+  ul.innerHTML = ''
+  for (let t = 0; t < AllingredientsUnique.length; t++) {
+    const li = new Element('li', 'li', 'dropdown__menu__item').elem
+    ul.appendChild(li)
+    li.classList.add('dropdown__menu__item--ingredients')
+    li.textContent = `${AllingredientsUnique[t]}`
   }
 }
 
-function displayIngredients(ingredients, ulIngredients) {
-  for (let ingredient of ingredients) {
-    const liIngredient = new Element('liIngredient', 'li', 'ingredientsList__item').elem
-    ulIngredients.appendChild(liIngredient)
-    const ingredientName = new Element('ingredientName', 'p', 'ingredientsList__item__name').elem
-    liIngredient.appendChild(ingredientName)
-    ingredientName.innerHTML = `${ingredient.ingredient}`
-    const quantity = new Element('quantity', 'p', 'ingredientsList__item__quantity').elem
-    liIngredient.appendChild(quantity)
-    if (ingredient.quantity != undefined) {
-      quantity.innerHTML = '&nbsp' + ':' + ' ' + `${ingredient.quantity}`
-    }
-    if (ingredient.unit != undefined) {
-      if (ingredient.unit == 'grammes') {
-        quantity.innerHTML += ' ' + 'gr'
-      } else {
-        quantity.innerHTML += ' ' + ` ${ingredient.unit}`
-      }
-    }
-  }
+ingredientsUp.addEventListener('click', () => closeDropdown())
+
+function closeDropdown() {
+  ingredientsDown.style.display = 'block'
+  ingredientsUp.style.display = 'none'
+  const ul = document.getElementById('menu-ingredients')
+  ul.innerHTML = ''
 }
+
