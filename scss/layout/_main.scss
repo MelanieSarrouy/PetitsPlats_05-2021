@@ -17,10 +17,12 @@
       font-size: 1.12rem;
       font-family: $font-family-main;
       outline: none;
+      margin-bottom: 2rem;
     }
     &__button {
       position: absolute;
       right: 0rem;
+      top: 1rem;
       border: none;
       background-color: $color-bg;
       // cursor: pointer;
@@ -32,6 +34,12 @@
   }
   &__filters {
     display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  &__selected {
+    display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
   }
 }
@@ -42,7 +50,5 @@
   justify-content: space-between;
   column-gap: 4%;
   row-gap: 3rem;
-  padding-top: 1.5rem;
+  padding-top: 4.5rem;
 }
-@import "../components/dropdown";
-@import "../components/recipes";

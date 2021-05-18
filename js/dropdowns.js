@@ -1,23 +1,35 @@
 import { recipes } from './recipes.js'
 import { Element } from './element.js'
-import { ingredientsDown, ingredientsUp } from './index.js'
 
-//fonction affichage des ingrédients
-function displayIngredients() {
-  ingredientsDown.style.display = 'none'
-  ingredientsUp.style.display = 'block'
-  const ulIngredients = document.getElementById('menu-ingredients')
-  ulIngredients.innerHTML = ''
-  ulIngredients.style.paddingTop = '1rem'
-  const allIngredientsUnique = noDuplicateElements()
-  titleSort(allIngredientsUnique)
-  columnSize(allIngredientsUnique, ulIngredients)
-  createItem(allIngredientsUnique, ulIngredients)
+// fonction ouverture des dropdowns
+function openDropdown() {
+  const target = window.event.target
+  const buttonOpen = target.parentNode
+  const nextParentTarget = buttonOpen.nextSibling
+  const buttonClose = nextParentTarget.nextSibling
+  let id = searchNodeId(buttonOpen)
+  const ul = document.getElementById(id)
+  buttonClose.style.display = 'block'
+  buttonOpen.style.display = 'none'
+  ul.style.paddingTop = '1rem'
+  ul.innerHTML = ''
+  if (id == 'menu-ingredients') {
+    const allElementsUnique = noDuplicateIngredients()
+    sortAndDisplayItems(allElementsUnique, ul)
+  }
+  if (id == 'menu-appareil') {
+    const allElementsUnique = noDuplicateAppliances()
+    sortAndDisplayItems(allElementsUnique, ul)
+  }
+  if (id == 'menu-ustensiles') {
+    const allElementsUnique = noDuplicateUstensils()
+    sortAndDisplayItems(allElementsUnique, ul)
+  }
 }
 
 // fonction liste des ingrédients sans doublons
-function noDuplicateElements() {
-  let ALLingredients = []
+function noDuplicateIngredients() {
+  let ALLelements = []
   for (let i = 0; i < recipes.length; i++) {
     const ingredientsRecipe = recipes[i].ingredients
     let arrayIngredients = []
@@ -25,27 +37,43 @@ function noDuplicateElements() {
       let oneIgredient = ingredient.ingredient
       arrayIngredients.push(oneIgredient)
     }
-    arrayIngredients.forEach(ingr => ALLingredients.push(ingr))
+    arrayIngredients.forEach(ingr => ALLelements.push(ingr))
   }
-  let allIngredientsUnique = [...new Set(ALLingredients)]
-  return allIngredientsUnique
+  let allElementsUnique = [...new Set(ALLelements)]
+  return allElementsUnique
 }
 
-// fonction création de chaque li pour chaque ingrédient
-function createItem(allIngredientsUnique, ulIngredients) {
-  for (let t = 0; t < allIngredientsUnique.length; t++) {
-    const li = new Element('li', 'li', 'dropdown__menu__item').elem
-    ulIngredients.appendChild(li)
-    li.classList.add('dropdown__menu__item--ingredients')
-    li.textContent = `${allIngredientsUnique[t]}`
+// fonction liste des appareils sans doublons
+function noDuplicateAppliances() {
+  let ALLelements = []
+  for (let i = 0; i < recipes.length; i++) {
+    const applianceRecipe = recipes[i].appliance
+    ALLelements.push(applianceRecipe)
   }
+  let allElementsUnique = [...new Set(ALLelements)]
+  return allElementsUnique
 }
 
-// fonction pour déterminer le nombre de lignes à afficher sur 3 colonnes
-function columnSize(allIngredientsUnique, ulIngredients) {
-  const lenghtList = allIngredientsUnique.length
-  const columnSize = Math.round(lenghtList / 3)
-  ulIngredients.style.gridTemplateRows = `repeat(${columnSize}, 1fr)`
+// fonction liste des ustensiles sans doublons
+function noDuplicateUstensils() {
+  let ALLelements = []
+  for (let i = 0; i < recipes.length; i++) {
+    const ustensilsRecipe = recipes[i].ustensils
+    let arrayUstensils = []
+    for (let ustensil of ustensilsRecipe) {
+      let oneUstensil = ustensil
+      arrayUstensils.push(oneUstensil)
+    }
+    arrayUstensils.forEach(ingr => ALLelements.push(ingr))
+  }
+  let allElementsUnique = [...new Set(ALLelements)]
+  return allElementsUnique
+}
+
+function sortAndDisplayItems(allElementsUnique, ul) {
+  titleSort(allElementsUnique)
+  columnSize(allElementsUnique, ul)
+  createItem(allElementsUnique, ul)
 }
 
 // fonction de tri par ordre alphabétique 
@@ -62,13 +90,91 @@ function titleSort(elements) {
   elements.sort(tri)
 }
 
-// fermeture de la dropdown
-function closeDropdown() {
-  const ulIngredients = document.getElementById('menu-ingredients')
-  ingredientsDown.style.display = 'block'
-  ingredientsUp.style.display = 'none'
-  ulIngredients.innerHTML = ''
-  ulIngredients.style.paddingTop = '0rem'
+// fonction pour déterminer le nombre de lignes à afficher sur 3 colonnes
+function columnSize(allElementsUnique, ul) {
+  const lenghtList = allElementsUnique.length
+  const columnSize = Math.ceil(lenghtList / 3)
+  ul.style.gridTemplateRows = `repeat(${columnSize}, 1fr)`
 }
 
-export { displayIngredients, closeDropdown }
+// fonction création de chaque li pour chaque element
+function createItem(allElementsUnique, ul) {
+  for (let t = 0; t < allElementsUnique.length; t++) {
+    const li = new Element('li', 'li', 'dropdown__menu__item').elem
+    li.id = `item-${[t]}`
+    ul.appendChild(li)
+    li.textContent = `${allElementsUnique[t]}`
+    li.addEventListener('click', () => displayElementSelected())
+  }
+}
+
+// fonction fermeture des dropdowns
+function closeDropdown() {
+  const target = window.event.target
+  const buttonClose = target.parentNode
+  const previousParentTarget = buttonClose.previousSibling
+  const buttonOpen = previousParentTarget.previousSibling
+  let id = searchNodeId(buttonClose)
+  const ul = document.getElementById(id)
+  buttonOpen.style.display = 'block'
+  buttonClose.style.display = 'none'
+  ul.innerHTML = ''
+  ul.style.paddingTop = '0rem'
+}
+
+function searchNodeId(button) {
+  if (button.id == 'iconUp-ingredients' || button.id == 'iconDown-ingredients') {
+    let id = 'menu-ingredients'
+    return id
+  } 
+  if (button.id == 'iconUp-appareil' || button.id == 'iconDown-appareil') {
+    let id = 'menu-appareil'
+    return id
+  } 
+  if (button.id == 'iconUp-ustensiles' || button.id == 'iconDown-ustensiles') {
+    let id = 'menu-ustensiles'
+    return id
+  } 
+
+}
+
+function displayElementSelected() {
+  const target = window.event.target
+  const content = target.textContent
+  const ulTarget = target.parentNode
+  const ulTargetId = ulTarget.id
+  let ul = selectUl(ulTargetId)
+  const li = new Element('li', 'li', 'elements__item').elem
+  ul.appendChild(li)
+  ul.style.paddingBottom = '0.5rem'
+  li.id = `element-${target.id}`
+  li.textContent = content
+  const icon = new Element('icon', 'i', 'far').elem
+  icon.classList.add('fa-times-circle', 'elements__item__icon')
+  li.appendChild(icon)
+  icon.addEventListener('click', () => closeSelectedBloc())
+
+}
+
+function selectUl(ulTargetId) {
+  if (ulTargetId == 'menu-ingredients') {
+    const ul = document.querySelector('.elements--ingredients')
+    return ul
+  }
+  if (ulTargetId == 'menu-appareil') {
+    const ul = document.querySelector('.elements--appareil')
+    return ul
+  }
+  if (ulTargetId == 'menu-ustensiles') {
+    const ul = document.querySelector('.elements--ustensiles')
+    return ul
+  }
+}
+
+function closeSelectedBloc() {
+  const target = window.event.target
+  const parentTarget = target.parentNode
+  parentTarget.style.display = 'none'
+}
+
+export { openDropdown, closeDropdown }

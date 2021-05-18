@@ -1,0 +1,31 @@
+.elements {
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 1rem;
+  &__item {
+    padding: 1.2rem;
+    box-sizing: border-box;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: .6rem;
+    margin-bottom: .6rem;
+    background-color: $color-ingredients;
+  }
+  &:nth-child(2n) {
+    & li {
+      background-color: $color-appareil;
+    }
+  }
+  &:nth-child(3n) {
+    & li {
+      background-color: $color-ustensiles;
+    }
+  }
+}
+.fa-times-circle {
+  font-size: 1.6rem;
+  padding-left: 1rem;
+}

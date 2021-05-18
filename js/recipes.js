@@ -29,7 +29,7 @@ const recipes = [
       }
     ],
     'time': 10,
-    'description': 'Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu\'à avoir la consistence désirée',
+    'description': 'Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu\'à avoir la consistence désirée.',
     'appliance': 'Blender',
     'ustensils': ['cuillère à soupe', 'verres', 'presse citron' ]
   },
@@ -66,7 +66,7 @@ const recipes = [
       }
     ],
     'time': 60,
-    'description': 'Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de coco',
+    'description': 'Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de coco.',
     'appliance': 'Saladier',
     'ustensils': ['presse citron']
   },{
@@ -101,7 +101,7 @@ const recipes = [
       }
     ],
     'time': 80,
-    'description': 'Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l\'huile d\'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l\'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l\'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz',
+    'description': 'Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l\'huile d\'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l\'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l\'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz.',
     'appliance': 'Cocotte',
     'ustensils': ['couteau']
   },{
@@ -138,7 +138,7 @@ const recipes = [
       }
     ],
     'time': 50,
-    'description': 'Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelles au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc..',
+    'description': 'Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelles au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc...',
     'appliance': 'Cuiseur de riz',
     'ustensils': ['saladier', 'passoire']
   },
@@ -177,7 +177,7 @@ const recipes = [
       }
     ],
     'time': 45,
-    'description': 'Etaler la pâte feuilletée aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraîche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes',
+    'description': 'Etaler la pâte feuilletée aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraîche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes.',
     'appliance':'Four',
     'ustensils': ['moule à tarte', 'râpe à fromage', 'couteau']
   },
@@ -216,7 +216,7 @@ const recipes = [
       }
     ],
     'time': 50,
-    'description': 'Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraîche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N\'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d\'oeufs et de crème fraîche. Laisser cuire au four pendant 30 minutes',
+    'description': 'Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraîche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N\'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d\'oeufs et de crème fraîche. Laisser cuire au four pendant 30 minutes.',
     'appliance': 'Four',
     'ustensils': ['moule à tarte', 'saladier', 'fourchette']
   },{
@@ -249,7 +249,7 @@ const recipes = [
       }
     ],
     'time': 50,
-    'description': 'Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu\'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ',
+    'description': 'Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu\'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur la pâte.',
     'appliance':'Four',
     'ustensils':['moule à tartelettes (6)', 'casserole']
   },{
@@ -951,7 +951,7 @@ const recipes = [
       }
     ],
     'time': 15,
-    'description':'Faire fondre l\'oseille avec du beurre demi sel, ajouter un litre d\'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d\'oeuf et la crème fraîche',
+    'description':'Faire fondre l\'oseille avec du beurre demi sel, ajouter un litre d\'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d\'oeuf et la crème fraîche.',
     'appliance': 'Casserole',
     'ustensils':['couteau','cuillère en bois']
   },
@@ -1076,7 +1076,7 @@ const recipes = [
       }
     ],
     'time': 60,
-    'description':'Découper en cubes les carottes et pommes de terre. Faire revenir dans du beurre. Ajouter les lardons, une fois les lardons dorés, ajouter un grand verre d\'eau. Ajouter les petit poids et les haricots verts ( tous deux pré cuits ). Ajouter Sel, poivre, thyms et laurier',
+    'description':'Découper en cubes les carottes et pommes de terre. Faire revenir dans du beurre. Ajouter les lardons, une fois les lardons dorés, ajouter un grand verre d\'eau. Ajouter les petit poids et les haricots verts ( tous deux pré cuits ). Ajouter Sel, poivre, thyms et laurier.',
     'appliance': 'Poêle ',
     'ustensils':['couteau', 'économe']
   },
@@ -1297,7 +1297,7 @@ const recipes = [
       }
     ],
     'time': 60,
-    'description':'Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d\'huile d\'olive. Ajouter l\'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomate. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé',
+    'description':'Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d\'huile d\'olive. Ajouter l\'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomate. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé.',
     'appliance': 'Four',
     'ustensils':['couteau', 'cuillère en bois', 'poêle à frire']
   },
@@ -1327,7 +1327,7 @@ const recipes = [
       }
     ],
     'time': 20,
-    'description':'Fouettez les oeufs, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir',
+    'description':'Fouettez les oeufs, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir.',
     'appliance': 'Four',
     'ustensils':['fouet', 'bol','cuillère à soupe']
   },
@@ -1357,7 +1357,7 @@ const recipes = [
       }
     ],
     'time': 40,
-    'description':'Découper les pommes en dé. Mélanger dans un saladier la farine, le sucre et le beurre. Bien mélanger. Beurrer le moule et ajouter les pommes. Par dessus placez la pate que vous avez obtenu. Cuire 20 minutes au four',
+    'description':'Découper les pommes en dé. Mélanger dans un saladier la farine, le sucre et le beurre. Bien mélanger. Beurrer le moule et ajouter les pommes. Par dessus placez la pate que vous avez obtenu. Cuire 20 minutes au four.',
     'appliance': 'Four',
     'ustensils':['saladier', 'couteau','fouet']
   },
@@ -1412,7 +1412,7 @@ const recipes = [
       }
     ],
     'time': 20,
-    'description':'Séparer les blancs d\'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais',
+    'description':'Séparer les blancs d\'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais.',
     'appliance': 'Casserole',
     'ustensils':['fouet', 'spatule', 'verres']
   }, 
@@ -1474,7 +1474,7 @@ const recipes = [
       }
     ],
     'time': 50,
-    'description':'Préchauffez le fours à 200°. Etaler la pate. La mettre dans un moule. Battre les oeufs avec le sucre. Ajouter le jus de citron et le beurre. Verser le tout sur la pate. Au four 30 minutes. Bon appetit ',
+    'description':'Préchauffez le fours à 200°. Etaler la pate. La mettre dans un moule. Battre les oeufs avec le sucre. Ajouter le jus de citron et le beurre. Verser le tout sur la pate. Au four 30 minutes. Bon appetit.',
     'appliance': 'Four',
     'ustensils':['rouleau à patisserie', 'moule à tarte', 'presse citron']
   }, 
@@ -1510,7 +1510,7 @@ const recipes = [
       }
     ],
     'time': 15,
-    'description':'Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres',
+    'description':'Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres.',
     'appliance': 'Casserole',
     'ustensils':['cuillère en bois']
   },
@@ -1580,7 +1580,7 @@ const recipes = [
       }
     ],
     'time': 60,
-    'description':'Mélanger la farine avec le sucre et les oeufs en ajoutant du sucre vanillé. Ajouter le lait petit à petit. Ajouter un petit vers de rhum. Verser la masse dans un plat beurré y placer les pruneaux et faire cuire à 200° pendant 45 minutes',
+    'description':'Mélanger la farine avec le sucre et les oeufs en ajoutant du sucre vanillé. Ajouter le lait petit à petit. Ajouter un petit vers de rhum. Verser la masse dans un plat beurré y placer les pruneaux et faire cuire à 200° pendant 45 minutes.',
     'appliance': 'Four',
     'ustensils':['fouet', 'moule', 'verres']
   },
@@ -1611,7 +1611,7 @@ const recipes = [
       }
     ],
     'time': 5,
-    'description':'Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la crème fraîche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir',
+    'description':'Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la crème fraîche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir.',
     'appliance': 'Saladier',
     'ustensils':['fouet', 'verres', 'cuillère en bois']
   },
@@ -1646,7 +1646,7 @@ const recipes = [
       }
     ],
     'time': 40,
-    'description':'Étaler la pate a pizza. Ecraser les tomates pelées, les étaler sur la pâte, ajouter les lardons et les champignons. Ajouter le gruyère eet passer au four à 220° durant 20 minutes',
+    'description':'Étaler la pate a pizza. Ecraser les tomates pelées, les étaler sur la pâte, ajouter les lardons et les champignons. Ajouter le gruyère eet passer au four à 220° durant 20 minutes.',
     'appliance': 'Four',
     'ustensils':['rouleau à patisserie', 'râpe à fromage','couteau']
   },
@@ -1679,7 +1679,7 @@ const recipes = [
       }
     ],
     'time': 0,
-    'description':'Découper les fruits. Le passer au blender jusqu\'à obtenir une texture liquide. Mettre au frais. Servir',
+    'description':'Découper les fruits. Le passer au blender jusqu\'à obtenir une texture liquide. Mettre au frais. Servir.',
     'appliance': 'Blender',
     'ustensils':['couteau', 'verres']
   },
