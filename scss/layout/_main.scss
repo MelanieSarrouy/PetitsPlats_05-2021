@@ -17,7 +17,7 @@
       font-size: 1.12rem;
       font-family: $font-family-main;
       outline: none;
-      margin-bottom: 2rem;
+      margin-bottom: 1.2rem;
     }
     &__button {
       position: absolute;
@@ -25,7 +25,6 @@
       top: 1rem;
       border: none;
       background-color: $color-bg;
-      // cursor: pointer;
       & span {
         font-size: 2rem;
         padding: .8rem;
@@ -36,19 +35,32 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    @include respond-to(small-screen) {
+      grid-template-columns: 1fr
+    }
   }
   &__selected {
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
+    margin-bottom: .2rem;
+    z-index: 4;
   }
 }
-
+.main {
+  position: relative;
+}
 .section {
+  position: absolute;
+  top: 14.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
   column-gap: 4%;
   row-gap: 3rem;
-  padding-top: 4.5rem;
+  width: 100%;
+  padding-bottom: 3rem;
+  @include respond-to (small-screen) {
+    position: relative;
+    top: 0.3rem;
+  }
 }

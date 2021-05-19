@@ -1,23 +1,8 @@
 /* media queries */ 
 
 @mixin respond-to($media) {
-  @if $media == verysmall-screen {
-    @media all and (max-width: $verysmall-screen) {
-      @content;
-    }
-  }
-  @if $media == mobile-screen {
-    @media all and (max-width: $mobile-screen) {
-      @content;
-    }
-  }
   @if $media == small-screen {
     @media all and (max-width: $small-screen) {
-      @content;
-    }
-  }
-  @if $media == medium-screen {
-    @media all and (max-width: $medium-screen) {
       @content;
     }
   }

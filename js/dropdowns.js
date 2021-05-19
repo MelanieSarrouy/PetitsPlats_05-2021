@@ -2,11 +2,13 @@ import { recipes } from './recipes.js'
 import { Element } from './element.js'
 
 // fonction ouverture des dropdowns
-function openDropdown() {
+function openDropdown(event) {
+  event.preventDefault
   const target = window.event.target
   const buttonOpen = target.parentNode
-  const nextParentTarget = buttonOpen.nextSibling
-  const buttonClose = nextParentTarget.nextSibling
+  const form = buttonOpen.parentNode
+  const children = form.children
+  const buttonClose = children[3]
   let id = searchNodeId(buttonOpen)
   const ul = document.getElementById(id)
   buttonClose.style.display = 'block'
@@ -109,11 +111,13 @@ function createItem(allElementsUnique, ul) {
 }
 
 // fonction fermeture des dropdowns
-function closeDropdown() {
+function closeDropdown(event) {
+  event.preventDefault
   const target = window.event.target
   const buttonClose = target.parentNode
-  const previousParentTarget = buttonClose.previousSibling
-  const buttonOpen = previousParentTarget.previousSibling
+  const form = buttonClose.parentNode
+  const children = form.children
+  const buttonOpen = children[2]
   let id = searchNodeId(buttonClose)
   const ul = document.getElementById(id)
   buttonOpen.style.display = 'block'
@@ -146,14 +150,23 @@ function displayElementSelected() {
   let ul = selectUl(ulTargetId)
   const li = new Element('li', 'li', 'elements__item').elem
   ul.appendChild(li)
-  ul.style.paddingBottom = '0.5rem'
   li.id = `element-${target.id}`
   li.textContent = content
   const icon = new Element('icon', 'i', 'far').elem
   icon.classList.add('fa-times-circle', 'elements__item__icon')
   li.appendChild(icon)
   icon.addEventListener('click', () => closeSelectedBloc())
+  const allLi = ul.children
+  twinSearch(allLi, li)
+}
 
+function twinSearch(allLi, li) {
+  const liArray = allLi.length - 1
+  for (let i = 0; i < liArray; i++) {
+    if (allLi[i].id == li.id) {
+      li.remove()
+    }
+  }
 }
 
 function selectUl(ulTargetId) {
@@ -174,7 +187,7 @@ function selectUl(ulTargetId) {
 function closeSelectedBloc() {
   const target = window.event.target
   const parentTarget = target.parentNode
-  parentTarget.style.display = 'none'
+  parentTarget.remove()
 }
 
 export { openDropdown, closeDropdown }

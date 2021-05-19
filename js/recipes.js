@@ -29,7 +29,7 @@ const recipes = [
       }
     ],
     'time': 10,
-    'description': 'Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu\'à avoir la consistence désirée.',
+    'description': 'Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu\'à avoir la consistance désirée.',
     'appliance': 'Blender',
     'ustensils': ['cuillère à soupe', 'verres', 'presse citron' ]
   },
@@ -66,7 +66,7 @@ const recipes = [
       }
     ],
     'time': 60,
-    'description': 'Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de coco.',
+    'description': 'Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures (si possible faites-le le soir pour le lendemain). Après avoir laissé mariner le poisson, coupez le concombre et les tomates en fines rondelles sans la peau en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois-ci dans un saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de crème de coco.',
     'appliance': 'Saladier',
     'ustensils': ['presse citron']
   },{
@@ -101,7 +101,7 @@ const recipes = [
       }
     ],
     'time': 80,
-    'description': 'Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l\'huile d\'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l\'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l\'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz.',
+    'description': 'Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l\'huile d\'olive. Salez et poivrez. Une fois dorés, laisser cuire en ajoutant de l\'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l\'oignon découpés en morceaux. Laisser cuir 30 minutes de plus. Servir avec du riz.',
     'appliance': 'Cocotte',
     'ustensils': ['couteau']
   },{
@@ -138,7 +138,7 @@ const recipes = [
       }
     ],
     'time': 50,
-    'description': 'Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelles au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc...',
+    'description': 'Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelles, au choix. Coupez les tomates en dés. Ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au goût de chacun des cornichons, olives etc...',
     'appliance': 'Cuiseur de riz',
     'ustensils': ['saladier', 'passoire']
   },
@@ -177,7 +177,7 @@ const recipes = [
       }
     ],
     'time': 45,
-    'description': 'Etaler la pâte feuilletée aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraîche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes.',
+    'description': 'Etaler la pâte feuilletée aux dimensions du moule, étaler la moutarde sur la pâte feuilletée, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraîche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes.',
     'appliance':'Four',
     'ustensils': ['moule à tarte', 'râpe à fromage', 'couteau']
   },
@@ -216,7 +216,7 @@ const recipes = [
       }
     ],
     'time': 50,
-    'description': 'Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraîche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N\'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d\'oeufs et de crème fraîche. Laisser cuire au four pendant 30 minutes.',
+    'description': 'Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraîche aux oeufs. Une fois que tout est prêt, étalez la tarte dans le moule. N\'oubliez pas de piquer le fond avec une fourchette avant de positionner les pommes sur la tarte. Finallement verser la préparation à base d\'oeufs et de crème fraîche. Laisser cuire au four pendant 30 minutes.',
     'appliance': 'Four',
     'ustensils': ['moule à tarte', 'saladier', 'fourchette']
   },{
@@ -249,7 +249,7 @@ const recipes = [
       }
     ],
     'time': 50,
-    'description': 'Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu\'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur la pâte.',
+    'description': 'Etaler la pâte dans les moules à tartelettes. Faire cuire la pâte 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu\'à avoir une pâte homogène. Verser la pâte sur les tartelettes. Couper les fraises en 2 et les positionner sur la pâte.',
     'appliance':'Four',
     'ustensils':['moule à tartelettes (6)', 'casserole']
   },{
@@ -289,7 +289,7 @@ const recipes = [
 
     ], 
     'time': 60,
-    'description': 'Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d\'avoir quelque chose d\'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.',
+    'description': 'Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeufs et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d\'avoir quelque chose d\'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.',
     'appliance': 'Four',
     'ustensils': ['moule à gateaux', 'casserole']
   },
@@ -321,7 +321,7 @@ const recipes = [
       }
     ],
     'time': 15,
-    'description':'Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamique et l\'huile d\'olive à votre gout.',
+    'description':'Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamique et l\'huile d\'olive à votre goût.',
     'appliance':'Saladier',
     'ustensils':['cuillère en bois', 'couteau']
   },
@@ -356,7 +356,7 @@ const recipes = [
       }
     ],
     'time': 60,
-    'description': 'Commencer par cuire les pommes de terre dans l\'eau bouillante. Puis epluchez les et coupez les en rondelles. Emincer les oignons puis les faire dorer dans du beurre. Ajouter le jambon fumé coupé en en morceaux ainsi que les pommes de terres. Salez, poivrez à votre gout ( et celui de vos convives ) Laissez cuisiner durant environ 10 minutes puis ajouter le vin blanc. Après 5 minutes, mettre le tout dans un plat à gratin. Coupez le rebelochon, soit en tranches, soit le couper en 2 dans le sens de l\'épaisseur et recouvrir les pommes de terre. Cuire au four (environ 220°) durant 25 minutes. C\'est prêt !',
+    'description': 'Commencer par cuire les pommes de terre dans l\'eau bouillante. Puis épluchez les et coupez les en rondelles. Emincer les oignons puis les faire dorer dans du beurre. Ajouter le jambon fumé coupé en morceaux ainsi que les pommes de terres. Salez, poivrez à votre goût (et celui de vos convives). Laissez cuire durant environ 10 minutes puis ajouter le vin blanc. Après 5 minutes, mettre le tout dans un plat à gratin. Coupez le rebelochon, soit en tranches, soit le couper en 2 dans le sens de l\'épaisseur et recouvrir les pommes de terre. Cuire au four (environ 220°) durant 25 minutes. C\'est prêt !',
     'appliance':'Four',
     'ustensils': ['plat à gratin', 'couteau','économe']
   },{
@@ -886,7 +886,7 @@ const recipes = [
       }
     ],
     'time': 30,
-    'description':'Faire fondre le beurre et le mélanger avec le sucre. Finalement ajouter l\'oeuf. Ajouter la farine tout en mélangeant peu pa peu pour avoir une masse sans grumaux. Ajouter les pépites de chocolat. Faire, une plaque de cuisson de petites boules pour les cookies. Mettre au four à 180° pour 10 minutes.',
+    'description':'Faire fondre le beurre et le mélanger avec le sucre. Finalement ajouter l\'oeuf. Ajouter la farine tout en mélangeant peu à peu pour avoir une masse sans grumaux. Ajouter les pépites de chocolat. Faire de petites boules sur une plaque de cuisson pour les cookies. Mettre au four à 180° pour 10 minutes.',
     'appliance': 'Four',
     'ustensils':['fouet', 'saladier', 'plaque de cuisson']
   },
@@ -1042,7 +1042,7 @@ const recipes = [
       }
     ],
     'time': 60,
-    'description':'Mettre tous les ingrédients dans une cocotte. ajouter de l\'eau pour recouvrir l\'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C\'est prêt',
+    'description':'Mettre tous les ingrédients dans une cocotte. ajouter de l\'eau pour recouvrir l\'ensemble et laisser cuire à petit feu pour 1 heure. Passer au mixer. Salez, poivrez. C\'est prêt !',
     'appliance': 'Mixer',
     'ustensils':['casserole', 'cuillère en bois']
   },

@@ -60,9 +60,10 @@
     line-height: 1rem;
     height: 109px;
     box-sizing: border-box;
-    padding-right: 1rem;
+    padding-right: .7rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    hyphens: auto;
   }
 }
 .ingredientsList {

@@ -5,6 +5,7 @@ function createACard() {
   for (let i = 0; i < recipes.length; i++) {
     const article = new Element('article', 'article', 'article').elem
     section.appendChild(article)
+    article.id = `article-${recipes[i].id}`
     const anchor = new Element('anchor', 'a', 'article__anchor').elem
     article.appendChild(anchor)
     anchor.href = '#'
@@ -38,8 +39,8 @@ function createACard() {
   }
 }
 function ellipsis(descriptionTxt, description) {
-  if (descriptionTxt.length > 165) {
-    const str = descriptionTxt.substring(0, 160)
+  if (descriptionTxt.length > 188) {
+    const str = descriptionTxt.substring(0, 188)
     description.textContent = str + '...'
   }
 }

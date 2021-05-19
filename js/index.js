@@ -5,12 +5,16 @@ createACard()
 
 const iconDown = document.querySelectorAll('.iconDown')
 iconDown.forEach(icon => {
-  icon.addEventListener('click', () => openDropdown())
+  icon.addEventListener('click', (event) => {
+    openDropdown(event)
+  })
 })
 
 const iconUp = document.querySelectorAll('.iconUp')
 iconUp.forEach(icon => {
-  icon.addEventListener('click', () => closeDropdown())
+  icon.addEventListener('click', (event) => {
+    closeDropdown(event)
+  })
 })
 
 

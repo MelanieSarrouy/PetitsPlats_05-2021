@@ -26,7 +26,7 @@
     </header>
     <main class="main">
       <header class="header2">
-        <form method="GET" action="#" id="recherche" class="header2__form">
+        <form method="GET" id="recherche" class="header2__form">
           <label for="search" class="header2__form__label"></label>
           <input type="search" name="ville" id="search" class="header2__form__input" minlength="3" maxlength="25"
             placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" required />
@@ -41,37 +41,31 @@
         </div>
         <div class="header2__filters">
           <div class="dropdown dropdown--ingredients">
-            <form method="GET" action="#" id="searchIngredients" class="dropdown__form">
+            <form method="GET" id="searchIngredients" class="dropdown__form">
               <label for="ingredients" class="dropdown__form__label"></label>
-              <input type="search" name="ingredients" id="ingredients" class="dropdown__form__input dropdown__form__input--ingredients" placeholder="Ingrédients" />
-              <button class="dropdown__form__icon dropdown__form__icon--ingredients iconDown" id="iconDown-ingredients"><i class="fas fa-chevron-down"></i></button>
-              <button class="dropdown__form__icon dropdown__form__icon--ingredients iconUp" id="iconUp-ingredients"><i class="fas fa-chevron-up"></i></button>
-
+              <input type="search" name="ingredients" id="ingredients" class="dropdown__form__input dropdown__form__input--ingredients" placeholder="Ingrédients" size="10"/>
+              <div class="dropdown__form__icon dropdown__form__icon--ingredients iconDown" id="iconDown-ingredients"><i class="fas fa-chevron-down"></i></div>
+              <div class="dropdown__form__icon dropdown__form__icon--ingredients iconUp" id="iconUp-ingredients"><i class="fas fa-chevron-up"></i></div>
             </form> 
-            <ul class="dropdown__menu" id="menu-ingredients">
-            </ul>
+            <ul class="dropdown__menu" id="menu-ingredients"></ul>
           </div>
           <div class="dropdown dropdown--appareil">
-            <form method="GET" action="#" id="searchAppareil" class="dropdown__form">
+            <form method="GET" id="searchAppareil" class="dropdown__form">
               <label for="appareil" class="dropdown__form__label"></label>
-              <input type="search" name="appareil" id="appareil" class="dropdown__form__input dropdown__form__input--appareil" placeholder="Appareil" />
-              <button class="dropdown__form__icon dropdown__form__icon--appareil iconDown" id="iconDown-appareil"><i class="fas fa-chevron-down"></i></button>
-              <button class="dropdown__form__icon dropdown__form__icon--appareil iconUp" id="iconUp-appareil"><i class="fas fa-chevron-up"></i></button>
-
+              <input type="search" name="appareil" id="appareil" class="dropdown__form__input dropdown__form__input--appareil" placeholder="Appareil" size="10" />
+              <div class="dropdown__form__icon dropdown__form__icon--appareil iconDown" id="iconDown-appareil"><i class="fas fa-chevron-down"></i></div>
+              <div class="dropdown__form__icon dropdown__form__icon--appareil iconUp" id="iconUp-appareil"><i class="fas fa-chevron-up"></i></div>
             </form> 
-            <ul class="dropdown__menu" id="menu-appareil">
-            </ul>
+            <ul class="dropdown__menu" id="menu-appareil"></ul>
           </div>
           <div class="dropdown dropdown--ustensiles">
-            <form method="GET" action="#" id="searchUstensiles" class="dropdown__form">
+            <form method="GET" id="searchUstensiles" class="dropdown__form">
               <label for="ustensiles" class="dropdown__form__label"></label>
-              <input type="search" name="ustensiles" id="ustensiles" class="dropdown__form__input dropdown__form__input--ustensiles" placeholder="Ustensiles" />
-              <button class="dropdown__form__icon dropdown__form__icon--ustensiles iconDown" id="iconDown-ustensiles"><i class="fas fa-chevron-down"></i></button>
-              <button class="dropdown__form__icon dropdown__form__icon--ustensiles iconUp" id="iconUp-ustensiles"><i class="fas fa-chevron-up"></i></button>
-
+              <input type="search" name="ustensiles" id="ustensiles" class="dropdown__form__input dropdown__form__input--ustensiles" placeholder="Ustensiles" size="10" />
+              <div class="dropdown__form__icon dropdown__form__icon--ustensiles iconDown" id="iconDown-ustensiles"><i class="fas fa-chevron-down"></i></div>
+              <div class="dropdown__form__icon dropdown__form__icon--ustensiles iconUp" id="iconUp-ustensiles"><i class="fas fa-chevron-up"></i></div>
             </form> 
-            <ul class="dropdown__menu" id="menu-ustensiles">
-            </ul>
+            <ul class="dropdown__menu" id="menu-ustensiles"></ul>
           </div>
 
 
