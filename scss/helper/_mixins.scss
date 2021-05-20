@@ -1,6 +1,12 @@
 /* media queries */ 
 
 @mixin respond-to($media) {
+  @if $media == verysmall-screen {
+    @media all and (max-width: $verysmall-screen) {
+      @content;
+    }
+  }
+
   @if $media == small-screen {
     @media all and (max-width: $small-screen) {
       @content;
@@ -11,4 +17,13 @@
       @content;
     }
   }
+}
+@mixin line-clamp($lines, $line-height) {
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  max-height: $lines * $line-height;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

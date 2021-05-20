@@ -3,7 +3,13 @@
   flex-direction: column;
   border-radius: .3rem;
   overflow: hidden;
-  max-width: 380px;
+  max-width: 23.75rem;
+  @include respond-to(large-screen) {
+    max-width: 100%;
+  }
+  @include respond-to(verysmall-screen) {
+    width: 100%;
+  }
   &__anchor {
     cursor: pointer;
   }
@@ -17,7 +23,7 @@
   flex-direction: column;
   padding: 1.25rem;
   background-color: $color-bg;
-  height: 186px;
+  height: 195px;
   box-sizing: border-box;
   overflow: hidden;
   &__title {
@@ -30,9 +36,18 @@
     line-height: 1.5rem;
     box-sizing: border-box;
     white-space: nowrap;
+    @include respond-to(small-screen) {
+      padding-top: 0rem;
+      padding-bottom: 1rem;
+    }
     &__h3 {
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 1.3rem;
+      font-weight: 700;
+      @include respond-to(small-screen) {
+        font-size: 1.2rem;
+      }
     }
     &__time {
       display: flex;
@@ -52,18 +67,31 @@
     column-gap: 1rem;
     justify-content: space-between;
     box-sizing: border-box;
-
+    @include respond-to(verysmall-screen) {
+      grid-template-columns: 1fr;
+    }
   }
   &__description {
     font-family: $font-family-recipe;
     font-size: 0.75rem;
     line-height: 1rem;
-    height: 109px;
+    height: 110px;
     box-sizing: border-box;
     padding-right: .7rem;
     overflow: hidden;
     text-overflow: ellipsis;
     hyphens: auto;
+    @include line-clamp(7, 6.9rem);
+    @include respond-to(small-screen) {
+      font-size: 1rem;
+      height: 115px;
+      padding-top: 0.1rem;
+      line-height: 1.2rem;
+      @include line-clamp(6, 7.2rem);
+    }
+    @include respond-to(verysmall-screen) {
+      display: none;
+    }
   }
 }
 .ingredientsList {
@@ -73,6 +101,10 @@
     overflow: hidden;
     white-space: nowrap;
     font-size: 0.75rem;
+    @include respond-to(small-screen) {
+      font-size: 1rem;
+      line-height: 1.2rem;
+    }
     &__name {
       font-weight: 700;
     }
