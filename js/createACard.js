@@ -34,16 +34,8 @@ function createACard() {
     const description = new Element('description', 'p', 'description__description').elem
     divdescriptionContent.appendChild(description)
     description.textContent = `${recipes[i].description}`
-    // const descriptionTxt = description.textContent
-    // ellipsis(descriptionTxt, description)
   }
 }
-// function ellipsis(descriptionTxt, description) {
-//   if (descriptionTxt.length > 188) {
-//     const str = descriptionTxt.substring(0, 188)
-//     description.textContent = str + '...'
-//   }
-// }
 function displayIngredients(ingredients, ulIngredients) {
   for (let ingredient of ingredients) {
     const liIngredient = new Element('liIngredient', 'li', 'ingredientsList__item').elem
