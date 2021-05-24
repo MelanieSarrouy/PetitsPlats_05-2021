@@ -1,4 +1,4 @@
-import { recipes } from './recipes.js'
+import { newArrayRecipes } from '../index.js'
 import { Element } from './element.js'
 
 // fonction ouverture des dropdowns
@@ -15,25 +15,27 @@ function openDropdown(event) {
   buttonOpen.style.display = 'none'
   ul.style.paddingTop = '1rem'
   ul.innerHTML = ''
+  ul.style.display = 'grid'
   if (id == 'menu-ingredients') {
-    const allElementsUnique = noDuplicateIngredients()
+    const allElementsUnique = noDuplicateIngredients(newArrayRecipes)
     sortAndDisplayItems(allElementsUnique, ul)
   }
   if (id == 'menu-appareil') {
-    const allElementsUnique = noDuplicateAppliances()
+    const allElementsUnique = noDuplicateAppliances(newArrayRecipes)
     sortAndDisplayItems(allElementsUnique, ul)
   }
   if (id == 'menu-ustensiles') {
-    const allElementsUnique = noDuplicateUstensils()
+    const allElementsUnique = noDuplicateUstensils(newArrayRecipes)
     sortAndDisplayItems(allElementsUnique, ul)
   }
 }
 
 // fonction liste des ingrédients sans doublons
-function noDuplicateIngredients() {
+function noDuplicateIngredients(param) {
+  console.log(param)
   let ALLelements = []
-  for (let i = 0; i < recipes.length; i++) {
-    const ingredientsRecipe = recipes[i].ingredients
+  for (let i = 0; i < param.length; i++) {
+    const ingredientsRecipe = param[i].ingredients
     let arrayIngredients = []
     for (let ingredient of ingredientsRecipe) {
       let oneIgredient = ingredient.ingredient
@@ -46,10 +48,10 @@ function noDuplicateIngredients() {
 }
 
 // fonction liste des appareils sans doublons
-function noDuplicateAppliances() {
+function noDuplicateAppliances(param) {
   let ALLelements = []
-  for (let i = 0; i < recipes.length; i++) {
-    const applianceRecipe = recipes[i].appliance
+  for (let i = 0; i < param.length; i++) {
+    const applianceRecipe = param[i].appliance
     ALLelements.push(applianceRecipe)
   }
   let allElementsUnique = [...new Set(ALLelements)]
@@ -57,10 +59,10 @@ function noDuplicateAppliances() {
 }
 
 // fonction liste des ustensiles sans doublons
-function noDuplicateUstensils() {
+function noDuplicateUstensils(param) {
   let ALLelements = []
-  for (let i = 0; i < recipes.length; i++) {
-    const ustensilsRecipe = recipes[i].ustensils
+  for (let i = 0; i < param.length; i++) {
+    const ustensilsRecipe = param[i].ustensils
     let arrayUstensils = []
     for (let ustensil of ustensilsRecipe) {
       let oneUstensil = ustensil
@@ -97,6 +99,9 @@ function columnSize(allElementsUnique, ul) {
   const lenghtList = allElementsUnique.length
   const columnSize = Math.ceil(lenghtList / 3)
   ul.style.gridTemplateRows = `repeat(${columnSize}, 1fr)`
+  if (lenghtList < 5) {
+    ul.style.gridTemplateColumns = 'repeat(2, 1fr)'
+  }
 }
 
 // fonction création de chaque li pour chaque element
@@ -122,8 +127,9 @@ function closeDropdown(event) {
   const ul = document.getElementById(id)
   buttonOpen.style.display = 'block'
   buttonClose.style.display = 'none'
-  ul.innerHTML = ''
+  // ul.innerHTML = ''
   ul.style.paddingTop = '0rem'
+  ul.style.display = 'none'
 }
 
 function searchNodeId(button) {
