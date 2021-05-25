@@ -1,38 +1,90 @@
-import { newArrayRecipes } from '../index.js'
 import { Element } from './element.js'
+import { normalizeAndLowerCase } from './input.js'
+
+// OUVERTURE ET FERMETURE DES DROPDOWNS // _____ // OUVERTURE ET FERMETURE DES DROPDOWNS //
 
 // fonction ouverture des dropdowns
 function openDropdown(event) {
   event.preventDefault
   const target = window.event.target
-  const buttonOpen = target.parentNode
-  const form = buttonOpen.parentNode
-  const children = form.children
+  let form, buttonOpen, children
+  if (target.tagName == 'I') {
+    buttonOpen = target.parentNode
+    form = buttonOpen.parentNode
+    children = form.children
+  } else {
+    form = target.parentNode
+    children = form.children
+    buttonOpen = children[2]
+  }
   const buttonClose = children[3]
   let id = searchNodeId(buttonOpen)
+  placeholder(id)
   const ul = document.getElementById(id)
+  const label = children[0]
+  const dropdown = form.parentNode
+  dropdown.width = 'auto'
+  label.style.display = 'none'
   buttonClose.style.display = 'block'
   buttonOpen.style.display = 'none'
-  ul.style.paddingTop = '1rem'
-  ul.innerHTML = ''
   ul.style.display = 'grid'
+}
+// fonction fermeture des dropdowns
+function closeDropdown(event) {
+  event.preventDefault
+  const target = window.event.target
+  const buttonClose = target.parentNode
+  const form = buttonClose.parentNode
+  const children = form.children
+  const buttonOpen = children[2]
+  const label = children[0]
+  const input = children[1]
+  label.style.display = 'block'
+  input.placeholder = ''
+  let id = searchNodeId(buttonClose)
+  const ul = document.getElementById(id)
+  buttonOpen.style.display = 'block'
+  buttonClose.style.display = 'none'
+  ul.style.display = 'none'
+}
+
+// Fonction pour afficher le placeholder à l'ouverture de la dropdown
+function placeholder(id) {
+  let input
   if (id == 'menu-ingredients') {
-    const allElementsUnique = noDuplicateIngredients(newArrayRecipes)
-    sortAndDisplayItems(allElementsUnique, ul)
+    input = document.getElementById('ingredients')
+    input.placeholder = 'Rechercher un ingrédient'
   }
   if (id == 'menu-appareil') {
-    const allElementsUnique = noDuplicateAppliances(newArrayRecipes)
-    sortAndDisplayItems(allElementsUnique, ul)
+    input = document.getElementById('appareil')
+    input.placeholder = 'Rechercher un appareil'
   }
   if (id == 'menu-ustensiles') {
-    const allElementsUnique = noDuplicateUstensils(newArrayRecipes)
-    sortAndDisplayItems(allElementsUnique, ul)
+    input = document.getElementById('ustensiles')
+    input.placeholder = 'Rechercher un ustensile'
   }
 }
 
+//Fonction pour retrouver l'id
+function searchNodeId(element) {
+  if (element.id == 'iconUp-ingredients' || element.id == 'iconDown-ingredients') {
+    let id = 'menu-ingredients'
+    return id
+  } 
+  if (element.id == 'iconUp-appareil' || element.id == 'iconDown-appareil') {
+    let id = 'menu-appareil'
+    return id
+  } 
+  if (element.id == 'iconUp-ustensiles' || element.id == 'iconDown-ustensiles') {
+    let id = 'menu-ustensiles'
+    return id
+  } 
+}
+
+// ACTUALISATION DU CONTENU DES DROPDOWNS // _____ // ACTUALISATION DU CONTENU DES DROPDOWNS // 
+
 // fonction liste des ingrédients sans doublons
 function noDuplicateIngredients(param) {
-  console.log(param)
   let ALLelements = []
   for (let i = 0; i < param.length; i++) {
     const ingredientsRecipe = param[i].ingredients
@@ -44,7 +96,9 @@ function noDuplicateIngredients(param) {
     arrayIngredients.forEach(ingr => ALLelements.push(ingr))
   }
   let allElementsUnique = [...new Set(ALLelements)]
-  return allElementsUnique
+  const ul = document.getElementById('menu-ingredients')
+  ul.innerHTML = ''
+  sortAndDisplayItems(allElementsUnique, ul)
 }
 
 // fonction liste des appareils sans doublons
@@ -55,7 +109,9 @@ function noDuplicateAppliances(param) {
     ALLelements.push(applianceRecipe)
   }
   let allElementsUnique = [...new Set(ALLelements)]
-  return allElementsUnique
+  const ul = document.getElementById('menu-appareil')
+  ul.innerHTML = ''
+  sortAndDisplayItems(allElementsUnique, ul)
 }
 
 // fonction liste des ustensiles sans doublons
@@ -71,9 +127,12 @@ function noDuplicateUstensils(param) {
     arrayUstensils.forEach(ingr => ALLelements.push(ingr))
   }
   let allElementsUnique = [...new Set(ALLelements)]
-  return allElementsUnique
+  const ul = document.getElementById('menu-ustensiles')
+  ul.innerHTML = ''
+  sortAndDisplayItems(allElementsUnique, ul)
 }
 
+//Fonction tri par ordre alphabétique et affichage en colonnes des éléments
 function sortAndDisplayItems(allElementsUnique, ul) {
   titleSort(allElementsUnique)
   columnSize(allElementsUnique, ul)
@@ -94,18 +153,36 @@ function titleSort(elements) {
   elements.sort(tri)
 }
 
+// function viewportSize() {
+//   let d = document.documentElement
+//   return {
+//     width: d.clientWidth
+//   }
+// }
+// let size = viewportSize()
+// let widthViewport = size.width 
+
 // fonction pour déterminer le nombre de lignes à afficher sur 3 colonnes
 function columnSize(allElementsUnique, ul) {
   const lenghtList = allElementsUnique.length
   const columnSize = Math.ceil(lenghtList / 3)
   ul.style.gridTemplateRows = `repeat(${columnSize}, 1fr)`
-  if (lenghtList < 5) {
-    ul.style.gridTemplateColumns = 'repeat(2, 1fr)'
-  }
+  // if (widthViewport <= 800) {
+  //   ul.style.display = 'grid'
+  //   ul.style.gridTemplateColumns = '1fr'
+  // }
 }
 
 // fonction création de chaque li pour chaque element
 function createItem(allElementsUnique, ul) {
+  const dropdown = ul.parentNode
+  const children = dropdown.children
+  const form = children[0]
+  const formChildren = form.children
+  const input = formChildren[1]
+  input.addEventListener('input', (allElementsUnique) => {
+    dynamicChoices(allElementsUnique)
+  })
   for (let t = 0; t < allElementsUnique.length; t++) {
     const li = new Element('li', 'li', 'dropdown__menu__item').elem
     li.id = `item-${[t]}`
@@ -113,41 +190,27 @@ function createItem(allElementsUnique, ul) {
     li.textContent = `${allElementsUnique[t]}`
     li.addEventListener('click', () => displayElementSelected())
   }
-}
-
-// fonction fermeture des dropdowns
-function closeDropdown(event) {
-  event.preventDefault
-  const target = window.event.target
-  const buttonClose = target.parentNode
-  const form = buttonClose.parentNode
-  const children = form.children
-  const buttonOpen = children[2]
-  let id = searchNodeId(buttonClose)
-  const ul = document.getElementById(id)
-  buttonOpen.style.display = 'block'
-  buttonClose.style.display = 'none'
-  // ul.innerHTML = ''
-  ul.style.paddingTop = '0rem'
-  ul.style.display = 'none'
-}
-
-function searchNodeId(button) {
-  if (button.id == 'iconUp-ingredients' || button.id == 'iconDown-ingredients') {
-    let id = 'menu-ingredients'
-    return id
-  } 
-  if (button.id == 'iconUp-appareil' || button.id == 'iconDown-appareil') {
-    let id = 'menu-appareil'
-    return id
-  } 
-  if (button.id == 'iconUp-ustensiles' || button.id == 'iconDown-ustensiles') {
-    let id = 'menu-ustensiles'
-    return id
-  } 
 
 }
 
+function dynamicChoices(allElementsUnique) {
+  const input = window.event.target
+  const entry = input.value
+  if (entry.length >= 3) {
+    let inputText = normalizeAndLowerCase(entry)
+    findItemsandHideOthers(inputText, allElementsUnique)
+  }
+}
+
+function findItemsandHideOthers(inputText, allElementsUnique) {
+  console.log(inputText)
+  console.log(allElementsUnique)
+
+}
+
+// TAGS // _____ // TAGS // _____ // TAGS // _____ // TAGS // _____ // TAGS // _____ 
+
+//Fonction affichage des tags sélectionnés
 function displayElementSelected() {
   const target = window.event.target
   const content = target.textContent
@@ -165,7 +228,7 @@ function displayElementSelected() {
   const allLi = ul.children
   twinSearch(allLi, li)
 }
-
+//Fonction pour éviter les doublons de tags
 function twinSearch(allLi, li) {
   const liArray = allLi.length - 1
   for (let i = 0; i < liArray; i++) {
@@ -174,7 +237,7 @@ function twinSearch(allLi, li) {
     }
   }
 }
-
+//Fonction pour retrouver l'ul
 function selectUl(ulTargetId) {
   if (ulTargetId == 'menu-ingredients') {
     const ul = document.querySelector('.elements--ingredients')
@@ -189,11 +252,11 @@ function selectUl(ulTargetId) {
     return ul
   }
 }
-
+//Fonction de fermeture des tags
 function closeSelectedBloc() {
   const target = window.event.target
   const parentTarget = target.parentNode
   parentTarget.remove()
 }
 
-export { openDropdown, closeDropdown }
+export { openDropdown, closeDropdown, noDuplicateIngredients, noDuplicateAppliances, noDuplicateUstensils }

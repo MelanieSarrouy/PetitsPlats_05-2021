@@ -12,12 +12,15 @@
       width: 100%;
       background-color: $color-bg;
       border: none;
-      padding: 1.4rem 4rem 1.5rem 1.3rem;
+      padding: 1.4rem 4.5rem 1.5rem 1.3rem;
       border-radius: .3rem;
       font-size: 1.12rem;
       font-family: $font-family-main;
       outline: none;
       margin-bottom: 1.2rem;
+      &:hover, &:focus {
+        background-color: $color-bg;
+      }
     }
     &__button {
       position: absolute;
@@ -35,9 +38,11 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    @include respond-to(small-screen) {
-      grid-template-columns: 1fr
-    }
+    // @include respond-to(small-screen) {
+    //   display: grid;
+    //   grid-template-columns: 1fr
+
+    // }
   }
   &__selected {
     display: flex;
@@ -66,10 +71,8 @@
 
   }
   @include respond-to (small-screen) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
     position: relative;
     top: 0.3rem;
   }
