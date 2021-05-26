@@ -82,6 +82,9 @@ function searchNodeId(element) {
 }
 
 // ACTUALISATION DU CONTENU DES DROPDOWNS // _____ // ACTUALISATION DU CONTENU DES DROPDOWNS // 
+let allIngredients
+let allAppliance
+let allUstensils
 
 // fonction liste des ingrédients sans doublons
 function noDuplicateIngredients(param) {
@@ -96,6 +99,7 @@ function noDuplicateIngredients(param) {
     arrayIngredients.forEach(ingr => ALLelements.push(ingr))
   }
   let allElementsUnique = [...new Set(ALLelements)]
+  allIngredients = allElementsUnique
   const ul = document.getElementById('menu-ingredients')
   ul.innerHTML = ''
   sortAndDisplayItems(allElementsUnique, ul)
@@ -109,6 +113,7 @@ function noDuplicateAppliances(param) {
     ALLelements.push(applianceRecipe)
   }
   let allElementsUnique = [...new Set(ALLelements)]
+  allAppliance = allElementsUnique
   const ul = document.getElementById('menu-appareil')
   ul.innerHTML = ''
   sortAndDisplayItems(allElementsUnique, ul)
@@ -127,6 +132,7 @@ function noDuplicateUstensils(param) {
     arrayUstensils.forEach(ingr => ALLelements.push(ingr))
   }
   let allElementsUnique = [...new Set(ALLelements)]
+  allUstensils = allElementsUnique
   const ul = document.getElementById('menu-ustensiles')
   ul.innerHTML = ''
   sortAndDisplayItems(allElementsUnique, ul)
@@ -172,7 +178,6 @@ function columnSize(allElementsUnique, ul) {
   //   ul.style.gridTemplateColumns = '1fr'
   // }
 }
-
 // fonction création de chaque li pour chaque element
 function createItem(allElementsUnique, ul) {
   const dropdown = ul.parentNode
@@ -180,8 +185,10 @@ function createItem(allElementsUnique, ul) {
   const form = children[0]
   const formChildren = form.children
   const input = formChildren[1]
-  input.addEventListener('input', (allElementsUnique) => {
-    dynamicChoices(allElementsUnique)
+
+
+  input.addEventListener('input', (event) => {
+    dynamicChoices(event)
   })
   for (let t = 0; t < allElementsUnique.length; t++) {
     const li = new Element('li', 'li', 'dropdown__menu__item').elem
@@ -189,24 +196,37 @@ function createItem(allElementsUnique, ul) {
     ul.appendChild(li)
     li.textContent = `${allElementsUnique[t]}`
     li.addEventListener('click', () => displayElementSelected())
+
   }
 
 }
 
-function dynamicChoices(allElementsUnique) {
+function dynamicChoices(event) {
+  event.preventDefault
   const input = window.event.target
   const entry = input.value
+  if (input.id == 'ingredients') {
+    console.log(allIngredients)
+  }
+  if (input.id == 'appareil') {
+    console.log(allAppliance)
+  }
+  if (input.id == 'ustensiles') {
+    console.log(allUstensils)
+  }
+
   if (entry.length >= 3) {
     let inputText = normalizeAndLowerCase(entry)
-    findItemsandHideOthers(inputText, allElementsUnique)
+    console.log(inputText)
+
+    // findItemsandHideOthers(inputText)
   }
 }
 
-function findItemsandHideOthers(inputText, allElementsUnique) {
-  console.log(inputText)
-  console.log(allElementsUnique)
+// function findItemsandHideOthers(inputText) {
+//   console.log(allElementsUnique)
 
-}
+// }
 
 // TAGS // _____ // TAGS // _____ // TAGS // _____ // TAGS // _____ // TAGS // _____ 
 
