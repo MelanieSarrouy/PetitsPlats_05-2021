@@ -159,24 +159,11 @@ function titleSort(elements) {
   elements.sort(tri)
 }
 
-// function viewportSize() {
-//   let d = document.documentElement
-//   return {
-//     width: d.clientWidth
-//   }
-// }
-// let size = viewportSize()
-// let widthViewport = size.width 
-
 // fonction pour déterminer le nombre de lignes à afficher sur 3 colonnes
 function columnSize(allElementsUnique, ul) {
   const lenghtList = allElementsUnique.length
   const columnSize = Math.ceil(lenghtList / 3)
   ul.style.gridTemplateRows = `repeat(${columnSize}, 1fr)`
-  // if (widthViewport <= 800) {
-  //   ul.style.display = 'grid'
-  //   ul.style.gridTemplateColumns = '1fr'
-  // }
 }
 // fonction création de chaque li pour chaque element
 function createItem(allElementsUnique, ul) {
@@ -196,9 +183,7 @@ function createItem(allElementsUnique, ul) {
     ul.appendChild(li)
     li.textContent = `${allElementsUnique[t]}`
     li.addEventListener('click', () => displayElementSelected())
-
   }
-
 }
 
 function dynamicChoices(event) {

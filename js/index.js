@@ -4,7 +4,7 @@ import { recipes } from './modules/recipes.js'
 import { testInput } from './modules/input.js'
 
 // Affichage des recettes ________________________________________
-let displayedRecipes = recipes
+// let displayedRecipes = recipes
 createACard(recipes)
 noDuplicateIngredients(recipes)
 noDuplicateAppliances(recipes)
@@ -37,14 +37,15 @@ inputDropdown.forEach(input => {
 const mainInput = document.getElementById('search')
 const buttonsearch = document.getElementById('bouton-rechercher')
 
-
 buttonsearch.addEventListener('click', (event) => {
   testInput(event)
 })
-mainInput.oninput =  testInput
+mainInput.addEventListener('input', (event) => {
+  testInput(event)
+})
 
 
 
-export { displayedRecipes }
+// export { displayedRecipes }
 
 
