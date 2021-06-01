@@ -45,11 +45,10 @@ mainInput.addEventListener('input', (event) => {
 })
 
 
-// let filteredRecipes = recipesDisplayed()
-// let filteredRecipes = recipesDisplayed()
+let filteredRecipes = recipesDisplayed()
 
-// const result = document.querySelector('.header2__result')
-// result.innerHTML = `<span class="header2__result__bold">${filteredRecipes.length}</span> recette(s) trouvée(s)`
+const result = document.querySelector('.header2__result')
+result.innerHTML = `<span class="header2__result__bold">${filteredRecipes.length}</span> recette(s) trouvée(s)`
 
 
 function recipesDisplayed() {

@@ -26,6 +26,7 @@
       margin-bottom: 1.2rem;
       &:hover, &:focus {
         background-color: $color-bg;
+        box-shadow: .15rem .15rem .45rem rgba(0, 0, 0, 0.20);
       }
     }
     &__button {

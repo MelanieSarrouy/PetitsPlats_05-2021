@@ -3,6 +3,7 @@ import { recipesDisplayed } from '../index.js'
 import { recipes } from './recipes.js'
 import { normalizeAndLowerCase, findRecipes } from './input.js'
 import { Element } from './element.js'
+// import { closeDropdown } from './dropdowns.js'
 
 
 //Fonction affichage des tags sélectionnés
@@ -12,6 +13,20 @@ function displayElementSelected() {
   const ulTarget = target.parentNode
   const ulTargetId = ulTarget.id
   const ul = selectUl(ulTargetId)
+  const dropdown = ulTarget.parentNode
+  const children = dropdown.children
+  const form = children[0]
+  const formChildren = form.children
+  const label = formChildren[0]
+  label.style.display = 'block'
+  const input = formChildren[1]
+  input.placeholder = ''
+  const buttonOpen = formChildren[2]
+  const buttonClose = formChildren[3]
+  ulTarget.style.display = 'none'
+  buttonOpen.style.display = 'block'
+  buttonClose.style.display = 'none'
+
   const li = new Element('li', 'li', 'elements__item').elem
   ul.appendChild(li)
   li.textContent = content
@@ -20,7 +35,6 @@ function displayElementSelected() {
   li.appendChild(icon)
   let allLi = ul.children
   twinSearch(allLi, li)
-
 
   let allTags = findTagsDisplayed()
   let filteredRecipes = recipesDisplayed()

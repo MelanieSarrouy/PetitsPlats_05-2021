@@ -15,9 +15,7 @@ function testInput(event) {
   event.preventDefault
   const entry = mainInput.value
   const result = document.querySelector('.header2__result')
-  let filterdRecipes = recipesDisplayed()
   let allTags = findTagsDisplayed()
-
   if (entry.length >= 3) {
     let inputText = normalizeAndLowerCase(entry)
     let arrayEntry = inputText.split(' ')
@@ -35,7 +33,7 @@ function testInput(event) {
     noDuplicateIngredients(displayedRecipes)
     noDuplicateAppliances(displayedRecipes)
     noDuplicateUstensils(displayedRecipes)
-    result.innerHTML = `<span class="header2__result__bold">${filterdRecipes.length}</span> recette(s) trouvée(s)`
+    result.innerHTML = `<span class="header2__result__bold">${displayedRecipes.length}</span> recette(s) trouvée(s)`
     return false
   }
 

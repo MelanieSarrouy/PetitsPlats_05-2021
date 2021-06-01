@@ -22,6 +22,10 @@
   &--ustensiles {
     background-color: $color-ustensiles;
   }
+  &:hover, &:focus {
+    box-shadow: .1rem .1rem .4rem rgba(0, 0, 0, 0.35);
+  }
+
   &__form {
     padding: 0 1rem;
     display: flex; 

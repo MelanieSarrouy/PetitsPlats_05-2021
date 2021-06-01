@@ -28,6 +28,9 @@ function openDropdown(event) {
   buttonClose.style.display = 'block'
   buttonOpen.style.display = 'none'
   ul.style.display = 'grid'
+  ul.classList.add('open')
+  const allDropdowns = document.querySelectorAll('.dropdown')
+  console.log(allDropdowns)
   const formChildren = form.children
   const input = formChildren[1]
   input.addEventListener('input', (event) => {
@@ -36,8 +39,7 @@ function openDropdown(event) {
 
 }
 // fonction fermeture des dropdowns
-function closeDropdown(event) {
-  event.preventDefault
+function closeDropdown() {
   const target = window.event.target
   const buttonClose = target.parentNode
   const form = buttonClose.parentNode
@@ -52,6 +54,8 @@ function closeDropdown(event) {
   buttonOpen.style.display = 'block'
   buttonClose.style.display = 'none'
   ul.style.display = 'none'
+  ul.classList.remove('open')
+
 }
 
 // Fonction pour afficher le placeholder à l'ouverture de la dropdown

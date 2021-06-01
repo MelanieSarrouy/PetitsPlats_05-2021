@@ -13,8 +13,12 @@ function createACard(param) {
     const anchor = new Element('anchor', 'a', 'article__anchor').elem
     article.appendChild(anchor)
     anchor.href = '#'
-    const background = new Element('background', 'div', 'bg').elem
-    anchor.appendChild(background)
+    const divImage = new Element('divImage', 'div', 'bg').elem
+    anchor.appendChild(divImage)
+    const image = new Element('image', 'img', 'image').elem
+    divImage.appendChild(image)
+    image.src = `../../images/images/${param[i].image}`
+    image.alt = `${param[i].name}`
     const divDescription = new Element('divDescription', 'div', 'description').elem
     anchor.appendChild(divDescription)
     const divTitle = new Element('divTitle', 'div', 'description__title').elem
