@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  &__result {
+    padding-bottom: .5rem;
+    &__bold {
+      font-weight: 700;
+    }
+  }
   &__form {
     display: flex;
     justify-content: space-between;

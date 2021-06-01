@@ -26,6 +26,8 @@
     </header>
     <main class="main">
       <header class="header2">
+        <p class="header2__result"><span class="header2__result__bold"></span></p>
+
         <form method="GET" id="recherche" class="header2__form" onsubmit="return false">
           <label for="search" class="header2__form__label"></label>
           <input type="search" name="recherche" id="search" class="header2__form__input" minlength="3" maxlength="70"
@@ -41,7 +43,7 @@
         </div>
         <div class="header2__filters">
           <div class="dropdown dropdown--ingredients">
-            <form method="GET" id="searchIngredients" class="dropdown__form">
+            <form method="GET" id="searchIngredients" class="dropdown__form" onsubmit="return false">
               <label for="ingredients" class="dropdown__form__label">Ingrédients</label>
               <input type="search" name="ingredients" id="ingredients" class="dropdown__form__input dropdown__form__input--ingredients" size="10"/>
               <div class="dropdown__form__icon dropdown__form__icon--ingredients iconDown" id="iconDown-ingredients"><i class="fas fa-chevron-down"></i></div>
@@ -50,7 +52,7 @@
             <ul class="dropdown__menu" id="menu-ingredients"></ul>
           </div>
           <div class="dropdown dropdown--appareil">
-            <form method="GET" id="searchAppareil" class="dropdown__form">
+            <form method="GET" id="searchAppareil" class="dropdown__form" onsubmit="return false">
               <label for="appareil" class="dropdown__form__label">Appareil</label>
               <input type="search" name="appareil" id="appareil" class="dropdown__form__input dropdown__form__input--appareil" size="10" />
               <div class="dropdown__form__icon dropdown__form__icon--appareil iconDown" id="iconDown-appareil"><i class="fas fa-chevron-down"></i></div>
@@ -59,7 +61,7 @@
             <ul class="dropdown__menu" id="menu-appareil"></ul>
           </div>
           <div class="dropdown dropdown--ustensiles">
-            <form method="GET" id="searchUstensiles" class="dropdown__form">
+            <form method="GET" id="searchUstensiles" class="dropdown__form" onsubmit="return false">
               <label for="ustensiles" class="dropdown__form__label">Ustensiles</label>
               <input type="search" name="ustensiles" id="ustensiles" class="dropdown__form__input dropdown__form__input--ustensiles" size="10" />
               <div class="dropdown__form__icon dropdown__form__icon--ustensiles iconDown" id="iconDown-ustensiles"><i class="fas fa-chevron-down"></i></div>
@@ -67,9 +69,6 @@
             </form> 
             <ul class="dropdown__menu" id="menu-ustensiles"></ul>
           </div>
-
-
-
         </div>      
 
       </header>

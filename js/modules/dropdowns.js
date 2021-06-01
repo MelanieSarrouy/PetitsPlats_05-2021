@@ -1,6 +1,6 @@
 import { Element } from './element.js'
 import { normalizeAndLowerCase } from './input.js'
-
+import { displayElementSelected } from './tags.js'
 // OUVERTURE ET FERMETURE DES DROPDOWNS // _____ // OUVERTURE ET FERMETURE DES DROPDOWNS //
 
 // fonction ouverture des dropdowns
@@ -28,6 +28,12 @@ function openDropdown(event) {
   buttonClose.style.display = 'block'
   buttonOpen.style.display = 'none'
   ul.style.display = 'grid'
+  const formChildren = form.children
+  const input = formChildren[1]
+  input.addEventListener('input', (event) => {
+    dynamicChoices(event)
+  })
+
 }
 // fonction fermeture des dropdowns
 function closeDropdown(event) {
@@ -102,7 +108,7 @@ function noDuplicateIngredients(param) {
   allIngredients = allElementsUnique
   const ul = document.getElementById('menu-ingredients')
   ul.innerHTML = ''
-  sortAndDisplayItems(allElementsUnique, ul)
+  sortAndDisplayItems(allIngredients, ul)
 }
 
 // fonction liste des appareils sans doublons
@@ -116,7 +122,7 @@ function noDuplicateAppliances(param) {
   allAppliance = allElementsUnique
   const ul = document.getElementById('menu-appareil')
   ul.innerHTML = ''
-  sortAndDisplayItems(allElementsUnique, ul)
+  sortAndDisplayItems(allAppliance, ul)
 }
 
 // fonction liste des ustensiles sans doublons
@@ -135,14 +141,14 @@ function noDuplicateUstensils(param) {
   allUstensils = allElementsUnique
   const ul = document.getElementById('menu-ustensiles')
   ul.innerHTML = ''
-  sortAndDisplayItems(allElementsUnique, ul)
+  sortAndDisplayItems(allUstensils, ul)
 }
 
 //Fonction tri par ordre alphabétique et affichage en colonnes des éléments
-function sortAndDisplayItems(allElementsUnique, ul) {
-  titleSort(allElementsUnique)
-  columnSize(allElementsUnique, ul)
-  createItem(allElementsUnique, ul)
+function sortAndDisplayItems(elements, ul) {
+  titleSort(elements)
+  columnSize(elements, ul)
+  createItem(elements, ul)
 }
 
 // fonction de tri par ordre alphabétique 
@@ -160,108 +166,58 @@ function titleSort(elements) {
 }
 
 // fonction pour déterminer le nombre de lignes à afficher sur 3 colonnes
-function columnSize(allElementsUnique, ul) {
-  const lenghtList = allElementsUnique.length
+function columnSize(elements, ul) {
+  const lenghtList = elements.length
   const columnSize = Math.ceil(lenghtList / 3)
   ul.style.gridTemplateRows = `repeat(${columnSize}, 1fr)`
 }
 // fonction création de chaque li pour chaque element
-function createItem(allElementsUnique, ul) {
-  const dropdown = ul.parentNode
-  const children = dropdown.children
-  const form = children[0]
-  const formChildren = form.children
-  const input = formChildren[1]
-
-
-  input.addEventListener('input', (event) => {
-    dynamicChoices(event)
-  })
-  for (let t = 0; t < allElementsUnique.length; t++) {
+function createItem(elements, ul) {
+  for (let t = 0; t < elements.length; t++) {
     const li = new Element('li', 'li', 'dropdown__menu__item').elem
-    li.id = `item-${[t]}`
     ul.appendChild(li)
-    li.textContent = `${allElementsUnique[t]}`
+    li.textContent = `${elements[t]}`
     li.addEventListener('click', () => displayElementSelected())
   }
 }
 
-function dynamicChoices(event) {
-  event.preventDefault
+function dynamicChoices() {
   const input = window.event.target
   const entry = input.value
   if (input.id == 'ingredients') {
-    console.log(allIngredients)
+    const ul = document.getElementById('menu-ingredients')
+    adjustDropdownDisplay(allIngredients, ul, entry)
   }
   if (input.id == 'appareil') {
-    console.log(allAppliance)
+    const ul = document.getElementById('menu-appareil')
+    adjustDropdownDisplay(allAppliance, ul, entry)
   }
   if (input.id == 'ustensiles') {
-    console.log(allUstensils)
+    const ul = document.getElementById('menu-ustensiles')
+    adjustDropdownDisplay(allUstensils, ul, entry)
   }
+}
 
-  if (entry.length >= 3) {
+function adjustDropdownDisplay(elements, ul, entry) {
+  if (entry.length >= 1) {
     let inputText = normalizeAndLowerCase(entry)
-    console.log(inputText)
-
-    // findItemsandHideOthers(inputText)
+    let relatedItems = compareElementsAndEntry(inputText, elements)
+    ul.innerHTML = ''
+    sortAndDisplayItems(relatedItems, ul)
+  } else {
+    sortAndDisplayItems(elements, ul)
   }
 }
 
-// function findItemsandHideOthers(inputText) {
-//   console.log(allElementsUnique)
-
-// }
-
-// TAGS // _____ // TAGS // _____ // TAGS // _____ // TAGS // _____ // TAGS // _____ 
-
-//Fonction affichage des tags sélectionnés
-function displayElementSelected() {
-  const target = window.event.target
-  const content = target.textContent
-  const ulTarget = target.parentNode
-  const ulTargetId = ulTarget.id
-  let ul = selectUl(ulTargetId)
-  const li = new Element('li', 'li', 'elements__item').elem
-  ul.appendChild(li)
-  li.id = `element-${target.id}`
-  li.textContent = content
-  const icon = new Element('icon', 'i', 'far').elem
-  icon.classList.add('fa-times-circle', 'elements__item__icon')
-  li.appendChild(icon)
-  icon.addEventListener('click', () => closeSelectedBloc())
-  const allLi = ul.children
-  twinSearch(allLi, li)
-}
-//Fonction pour éviter les doublons de tags
-function twinSearch(allLi, li) {
-  const liArray = allLi.length - 1
-  for (let i = 0; i < liArray; i++) {
-    if (allLi[i].id == li.id) {
-      li.remove()
+function compareElementsAndEntry(entry, elements) {
+  let relatedItems = []
+  for (let i = 0; i < elements.length; i++) {
+    let ingredient = normalizeAndLowerCase(elements[i])
+    if (ingredient.search(entry) != -1) {
+      relatedItems.push(elements[i])
     }
   }
-}
-//Fonction pour retrouver l'ul
-function selectUl(ulTargetId) {
-  if (ulTargetId == 'menu-ingredients') {
-    const ul = document.querySelector('.elements--ingredients')
-    return ul
-  }
-  if (ulTargetId == 'menu-appareil') {
-    const ul = document.querySelector('.elements--appareil')
-    return ul
-  }
-  if (ulTargetId == 'menu-ustensiles') {
-    const ul = document.querySelector('.elements--ustensiles')
-    return ul
-  }
-}
-//Fonction de fermeture des tags
-function closeSelectedBloc() {
-  const target = window.event.target
-  const parentTarget = target.parentNode
-  parentTarget.remove()
+  return relatedItems
 }
 
 export { openDropdown, closeDropdown, noDuplicateIngredients, noDuplicateAppliances, noDuplicateUstensils }

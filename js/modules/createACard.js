@@ -1,5 +1,6 @@
-// import { recipes } from './recipes.js'
 import { Element } from './element.js'
+
+
 function createACard(param) {
   const section = document.querySelector('.section')
   section.style.display = 'grid'

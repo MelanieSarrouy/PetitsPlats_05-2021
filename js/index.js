@@ -4,7 +4,7 @@ import { recipes } from './modules/recipes.js'
 import { testInput } from './modules/input.js'
 
 // Affichage des recettes ________________________________________
-// let displayedRecipes = recipes
+
 createACard(recipes)
 noDuplicateIngredients(recipes)
 noDuplicateAppliances(recipes)
@@ -45,7 +45,29 @@ mainInput.addEventListener('input', (event) => {
 })
 
 
+// let filteredRecipes = recipesDisplayed()
+// let filteredRecipes = recipesDisplayed()
 
-// export { displayedRecipes }
+// const result = document.querySelector('.header2__result')
+// result.innerHTML = `<span class="header2__result__bold">${filteredRecipes.length}</span> recette(s) trouvée(s)`
+
+
+function recipesDisplayed() {
+  let displayedRecipes = []
+  let articles = document.querySelectorAll('.article')
+  let allArticles = Array.from(articles)
+  allArticles.forEach(article => {
+    let articleId = article.id
+    for (let i = 0; i < recipes.length; i++) {
+      let recipeId = `article-${recipes[i].id}`
+      if (articleId == recipeId) {
+        displayedRecipes.push(recipes[i])
+      }
+    }
+  }) 
+  return displayedRecipes
+}
+
+export { recipesDisplayed }
 
 
