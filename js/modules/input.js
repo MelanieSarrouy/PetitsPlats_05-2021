@@ -6,7 +6,7 @@ import { recipesDisplayed } from '../index.js'
 //_________________________________________________________________
 const section = document.querySelector('.section')
 const mainInput = document.getElementById('search')
-let displayedRecipes
+// let displayedRecipes
 
 
 // Fonction de récupération des données du champ de recherche principal 
@@ -16,6 +16,7 @@ function testInput(event) {
   const entry = mainInput.value
   const result = document.querySelector('.header2__result')
   let allTags = findTagsDisplayed()
+  let filterdRecipes
   if (entry.length >= 3) {
     let inputText = normalizeAndLowerCase(entry)
     let arrayEntry = inputText.split(' ')
@@ -23,17 +24,22 @@ function testInput(event) {
       allTags.push(elem)
     })
     findRecipes(allTags, recipes)
-    let filterdRecipes = recipesDisplayed()
+    filterdRecipes = recipesDisplayed()
     result.innerHTML = `<span class="header2__result__bold">${filterdRecipes.length}</span> recette(s) trouvée(s)`
     return false
+  } 
+  if (entry.length < 3 && allTags.length != 0) {
+    findRecipes(allTags, recipes)
+
+    filterdRecipes = recipesDisplayed()
+    result.innerHTML = `<span class="header2__result__bold">${filterdRecipes.length}</span> recette(s) trouvée(s)`
   } else {
     section.innerHTML = ''
-    displayedRecipes = recipes
-    createACard(displayedRecipes)
-    noDuplicateIngredients(displayedRecipes)
-    noDuplicateAppliances(displayedRecipes)
-    noDuplicateUstensils(displayedRecipes)
-    result.innerHTML = `<span class="header2__result__bold">${displayedRecipes.length}</span> recette(s) trouvée(s)`
+    createACard(recipes)
+    noDuplicateIngredients(recipes)
+    noDuplicateAppliances(recipes)
+    noDuplicateUstensils(recipes)
+    result.innerHTML = `<span class="header2__result__bold">${recipes.length}</span> recette(s) trouvée(s)`
     return false
   }
 
@@ -78,11 +84,10 @@ function findRecipes(input, someRecipes) {
     }
   }
   section.innerHTML = ''
-  displayedRecipes = recipesSelected
-  createACard(displayedRecipes)
-  noDuplicateIngredients(displayedRecipes)
-  noDuplicateAppliances(displayedRecipes)
-  noDuplicateUstensils(displayedRecipes)
+  createACard(recipesSelected)
+  noDuplicateIngredients(recipesSelected)
+  noDuplicateAppliances(recipesSelected)
+  noDuplicateUstensils(recipesSelected)
   if (index === 0) {
     section.style.display = 'flex'
     section.style.justifyContent = 'center'

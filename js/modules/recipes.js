@@ -555,7 +555,7 @@ const recipes = [
     ],
     'time': 60,
     'description':'Mélangez dans un saladier, la farine, les oeufs, et le lait. Battez jusqu\'à avoir une masse homogène. Pendant ce temps faites fondre le beurre et ajoutez en une partie à la pâte à crêpes. Faire fondre le chocolat ( avec le reste du beurre salé ). Lorsque vous chauffez les crêpes. Ajouter le chocolat fondu et les bananes coupées en rondelles. Ajoutez une touche de chantilly pour les gourmands',
-    'appliance': 'Poêle  à crêpe',
+    'appliance': 'Poêle à crêpe',
     'ustensils':['saladier', 'louche', 'cuillère en bois'],
     'image': 'Crêpes Chocolat Banane.jpg'
   },
@@ -1528,7 +1528,7 @@ const recipes = [
   }, 
   {
     'id': 44,
-    'name': 'Crème déssert au chocolat',
+    'name': 'Crème dessert au chocolat',
     'servings': 6,
     'ingredients': [
       {
@@ -1561,7 +1561,7 @@ const recipes = [
     'description':'Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres.',
     'appliance': 'Casserole',
     'ustensils':['cuillère en bois'],
-    'image': 'Crème déssert au chocolat.jpg'
+    'image': 'Crème dessert au chocolat.jpg'
   },
   {
     'id': 45,

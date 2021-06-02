@@ -22,22 +22,47 @@ function openDropdown(event) {
   placeholder(id)
   const ul = document.getElementById(id)
   const label = children[0]
-  const dropdown = form.parentNode
-  dropdown.width = 'auto'
   label.style.display = 'none'
   buttonClose.style.display = 'block'
   buttonOpen.style.display = 'none'
   ul.style.display = 'grid'
-  ul.classList.add('open')
   const formChildren = form.children
   const input = formChildren[1]
+  input.style.display = 'block'
+
   input.addEventListener('input', (event) => {
     dynamicChoices(event)
+  })
+
+  onlyOneDropdownOpen(form)
+}
+
+function onlyOneDropdownOpen(elem) {
+  const dropdownTarget = elem.parentNode
+  dropdownTarget.classList.add('open')
+  const filters = dropdownTarget.parentNode
+  const dropdowns = filters.children
+  const arrayDropdowns = Array.from(dropdowns)
+  arrayDropdowns.forEach(dropdown => {
+    if (dropdown != dropdownTarget) {
+      if (dropdown.classList.contains('open') == true) {
+        let children = dropdown.children
+        let form = children[0]
+        let formChildren = form.children
+        let divClose = formChildren[3]
+        let divCloseChild = divClose.children
+        let chevronUp = divCloseChild[0]
+        close(chevronUp)
+      }
+    }
   })
 }
 // fonction fermeture des dropdowns
 function closeDropdown() {
   const target = window.event.target
+  close(target)
+}
+function close(target) {
   const buttonClose = target.parentNode
   const form = buttonClose.parentNode
   const children = form.children
@@ -45,14 +70,14 @@ function closeDropdown() {
   const label = children[0]
   const input = children[1]
   label.style.display = 'block'
-  input.value = ''
-  input.placeholder = ''
+  input.style.display = 'none'
   let id = searchNodeId(buttonClose)
   const ul = document.getElementById(id)
   buttonOpen.style.display = 'block'
   buttonClose.style.display = 'none'
   ul.style.display = 'none'
-  ul.classList.remove('open')
+  const dropdownTarget = form.parentNode
+  dropdownTarget.classList.remove('open')
 }
 
 // Fonction pour afficher le placeholder à l'ouverture de la dropdown
@@ -174,11 +199,18 @@ function columnSize(elements, ul) {
 }
 // fonction création de chaque li pour chaque element
 function createItem(elements, ul) {
+  const tags = document.querySelectorAll('.elements__item')
+  const arrayTags = Array.from(tags)
   for (let t = 0; t < elements.length; t++) {
     const li = new Element('li', 'li', 'dropdown__menu__item').elem
     ul.appendChild(li)
     li.textContent = `${elements[t]}`
     li.addEventListener('click', () => displayElementSelected())
+    arrayTags.forEach(tag => {
+      if (tag.textContent == li.textContent) {
+        li.style.color = 'rgba(255, 255, 255, 0.2)'
+      }
+    })
   }
 }
 
@@ -206,6 +238,7 @@ function adjustDropdownDisplay(elements, ul, entry) {
     ul.innerHTML = ''
     sortAndDisplayItems(relatedItems, ul)
   } else {
+    ul.innerHTML = ''
     sortAndDisplayItems(elements, ul)
   }
 }

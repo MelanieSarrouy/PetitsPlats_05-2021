@@ -44,12 +44,10 @@
   &__filters {
     display: flex;
     align-items: flex-start;
+    @include respond-to(small-screen) {
     flex-wrap: wrap;
-    // @include respond-to(small-screen) {
-    //   display: grid;
-    //   grid-template-columns: 1fr
 
-    // }
+    }
   }
   &__selected {
     display: flex;
@@ -63,7 +61,7 @@
 }
 .section {
   position: absolute;
-  top: 14.5rem;
+  top: 16.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;

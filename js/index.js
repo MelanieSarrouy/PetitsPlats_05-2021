@@ -20,14 +20,14 @@ iconDown.forEach(icon => {
 
 const iconUp = document.querySelectorAll('.iconUp')
 iconUp.forEach(icon => {
-  icon.addEventListener('click', (event) => {
-    closeDropdown(event)
+  icon.addEventListener('click', () => {
+    closeDropdown()
   })
 })
 
-const inputDropdown = document.querySelectorAll('.dropdown__form__input')
-inputDropdown.forEach(input => {
-  input.addEventListener('focus', (event) => {
+const labelDropdown = document.querySelectorAll('.dropdown__form__label')
+labelDropdown.forEach(label => {
+  label.addEventListener('click', (event) => {
     openDropdown(event)
   })
 })
