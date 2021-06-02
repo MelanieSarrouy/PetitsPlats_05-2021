@@ -29,8 +29,6 @@ function openDropdown(event) {
   buttonOpen.style.display = 'none'
   ul.style.display = 'grid'
   ul.classList.add('open')
-  const allDropdowns = document.querySelectorAll('.dropdown')
-  console.log(allDropdowns)
   const formChildren = form.children
   const input = formChildren[1]
   input.addEventListener('input', (event) => {

@@ -35,7 +35,10 @@ function displayElementSelected() {
   li.appendChild(icon)
   let allLi = ul.children
   twinSearch(allLi, li)
-
+  const section = document.querySelector('.section')
+  if (allLi.length > 0) {
+    section.style.top = '16.5rem'
+  } 
   let allTags = findTagsDisplayed()
   let filteredRecipes = recipesDisplayed()
 
@@ -112,6 +115,10 @@ function closeSelectedBloc() {
   let allTags = findTagsDisplayed()
   const mainInput = document.getElementById('search')
   const entry = mainInput.value
+  const section = document.querySelector('.section')
+  if (allTags.length == 0) {
+    section.style.top = '14.5rem'
+  } 
   if (entry.length >= 3) {
     let inputText = normalizeAndLowerCase(entry)
     let arrayEntry = inputText.split(' ')

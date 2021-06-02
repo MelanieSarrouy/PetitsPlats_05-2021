@@ -17,7 +17,7 @@ function createACard(param) {
     anchor.appendChild(divImage)
     const image = new Element('image', 'img', 'image').elem
     divImage.appendChild(image)
-    image.src = `../../images/images/${param[i].image}`
+    image.src = `../images/images/${param[i].image}`
     image.alt = `${param[i].name}`
     const divDescription = new Element('divDescription', 'div', 'description').elem
     anchor.appendChild(divDescription)
