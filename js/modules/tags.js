@@ -20,6 +20,8 @@ function displayElementSelected() {
   const label = formChildren[0]
   label.style.display = 'block'
   const input = formChildren[1]
+  console.log(formChildren[1])
+  input.value = ''
   input.placeholder = ''
   const buttonOpen = formChildren[2]
   const buttonClose = formChildren[3]

@@ -34,7 +34,6 @@ function openDropdown(event) {
   input.addEventListener('input', (event) => {
     dynamicChoices(event)
   })
-
 }
 // fonction fermeture des dropdowns
 function closeDropdown() {
@@ -46,6 +45,7 @@ function closeDropdown() {
   const label = children[0]
   const input = children[1]
   label.style.display = 'block'
+  input.value = ''
   input.placeholder = ''
   let id = searchNodeId(buttonClose)
   const ul = document.getElementById(id)
@@ -53,7 +53,6 @@ function closeDropdown() {
   buttonClose.style.display = 'none'
   ul.style.display = 'none'
   ul.classList.remove('open')
-
 }
 
 // Fonction pour afficher le placeholder à l'ouverture de la dropdown
