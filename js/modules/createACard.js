@@ -1,5 +1,11 @@
 import { Element } from './element.js'
+//_________________________________________________________________
 
+/**
+ * @function createACard
+ * création des cartes pour chaque recette
+ * @param {Array} param 
+ */
 
 function createACard(param) {
   const section = document.querySelector('.section')
@@ -44,6 +50,13 @@ function createACard(param) {
     description.textContent = `${param[i].description}`
   }
 }
+
+//_________________________________________________________________
+/**
+ * @function displayIngredients
+ * affichage des ingrédients, quantités et unités dans les cartes recettes
+ */
+
 function displayIngredients(ingredients, ulIngredients) {
   for (let ingredient of ingredients) {
     const liIngredient = new Element('liIngredient', 'li', 'ingredientsList__item').elem
@@ -62,6 +75,15 @@ function displayIngredients(ingredients, ulIngredients) {
     displayUnit(unit, quantityNb, quantity)
   }
 }
+
+//_________________________________________________________________
+/**
+ * @function displayUnit
+ * modification des unités pour respecter les accords et créer des abbréviations
+ * @param {String} unit 
+ * @param {Number} quantityNb 
+ * @param {HTMLElement} quantity 
+ */
 
 function displayUnit(unit, quantityNb, quantity) {
   if (quantityNb <= 1) {
@@ -129,4 +151,5 @@ function displayUnit(unit, quantityNb, quantity) {
   }
 }
 
+// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
 export { createACard }
