@@ -143,7 +143,7 @@ function createItem(elements, ul) {
     li.addEventListener('click', () => displayElementSelected())
     arrayTags.forEach(tag => {
       if (tag.textContent == li.textContent) {
-        li.style.color = 'rgba(255, 255, 255, 0.5)'
+        li.style.color = 'rgba(255, 255, 255, 0.4)'
         li.style.textDecoration = 'line-through'
       }
     })
@@ -161,7 +161,6 @@ function dynamicChoices() {
   const entry = input.value
   if (input.id == 'ingredients') {
     const ul = document.getElementById('menu-ingredients')
-    console.log(allIngredients)
     adjustDropdownDisplay(allIngredients, ul, entry)
   }
   if (input.id == 'appareil') {

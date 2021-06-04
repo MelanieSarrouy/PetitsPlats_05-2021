@@ -3,7 +3,6 @@ function normalizeAndLowerCase(param) {
   let a = param.normalize('NFD')
   a = replacements(a)
   let b = a.toLowerCase()
-  // b = clean(b)
   return b
 }
 function replacements(str) {

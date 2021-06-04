@@ -18,18 +18,11 @@ function displayElementSelected() {
   const ul = selectUl(ulTargetId)
   const dropdown = ulTarget.parentNode
   const children = dropdown.children
-  const form = children[0]
-  const formChildren = form.children
-  const label = formChildren[0]
-  label.style.display = 'block'
-  const input = formChildren[1]
-  input.value = ''
-  input.placeholder = ''
-  const buttonOpen = formChildren[2]
-  const buttonClose = formChildren[3]
+  const form = children[1]
+  const buttonOpen = children[0]
+  buttonOpen.style.display = 'flex'
+  form.style.display = 'none'
   ulTarget.style.display = 'none'
-  buttonOpen.style.display = 'block'
-  buttonClose.style.display = 'none'
 
   const li = new Element('li', 'li', 'elements__item').elem
   ul.appendChild(li)

@@ -10,34 +10,30 @@ import { dynamicChoices } from './contentsOfDropdowns.js'
 function openDropdown(event) {
   event.preventDefault
   const target = window.event.target
-  let form, buttonOpen, children
+  let form, buttonOpen
   if (target.tagName == 'I') {
     buttonOpen = target.parentNode
-    form = buttonOpen.parentNode
-    children = form.children
   } else {
-    form = target.parentNode
-    children = form.children
-    buttonOpen = children[2]
+    buttonOpen = target
   }
-  const buttonClose = children[3]
+  let dropdown = buttonOpen.parentNode
+  let dropdownChildren = dropdown.children
+  form = dropdownChildren[1]
   let id = searchNodeId(buttonOpen)
   placeholder(id)
   const ul = document.getElementById(id)
-  const label = children[0]
-  label.style.display = 'none'
-  buttonClose.style.display = 'block'
   buttonOpen.style.display = 'none'
+  form.style.display = 'flex'
   ul.style.display = 'grid'
   const formChildren = form.children
   const input = formChildren[1]
-  input.style.display = 'block'
+  dynamicChoices()
 
   input.addEventListener('input', (event) => {
     dynamicChoices(event)
   })
   
-  onlyOneDropdownOpen(form)
+  onlyOneDropdownOpen(buttonOpen)
 }
 
 //_________________________________________________________________
@@ -48,7 +44,8 @@ function openDropdown(event) {
  */
 
 function onlyOneDropdownOpen(elem) {
-  const dropdownTarget = elem.parentNode
+  const buttonOpen = elem
+  const dropdownTarget = buttonOpen.parentNode
   dropdownTarget.classList.add('open')
   const filters = dropdownTarget.parentNode
   const dropdowns = filters.children
@@ -57,9 +54,9 @@ function onlyOneDropdownOpen(elem) {
     if (dropdown != dropdownTarget) {
       if (dropdown.classList.contains('open') == true) {
         let children = dropdown.children
-        let form = children[0]
+        let form = children[1]
         let formChildren = form.children
-        let divClose = formChildren[3]
+        let divClose = formChildren[2]
         let divCloseChild = divClose.children
         let chevronUp = divCloseChild[0]
         close(chevronUp)
@@ -86,21 +83,22 @@ function closeDropdown() {
  */
 
 function close(target) {
-  const buttonClose = target.parentNode
+  let buttonClose
+  if (target.tagName == 'I') {
+    buttonClose = target.parentNode
+  } else {
+    buttonClose = target
+  }
   const form = buttonClose.parentNode
-  const children = form.children
-  const buttonOpen = children[2]
-  const label = children[0]
-  const input = children[1]
-  label.style.display = 'block'
-  input.style.display = 'none'
+  const dropdown = form.parentNode
+  const dropdownChildren = dropdown.children
+  const buttonOpen = dropdownChildren[0]
+  form.style.display = 'none'
   let id = searchNodeId(buttonClose)
   const ul = document.getElementById(id)
-  buttonOpen.style.display = 'block'
-  buttonClose.style.display = 'none'
+  buttonOpen.style.display = 'flex'
   ul.style.display = 'none'
-  const dropdownTarget = form.parentNode
-  dropdownTarget.classList.remove('open')
+  dropdown.classList.remove('open')
 }
 
 //_________________________________________________________________

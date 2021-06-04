@@ -13,12 +13,20 @@ noDuplicateAppliances(recipes)
 noDuplicateUstensils(recipes)
 
 // Ouverture et fermeture des dropdowns ___________________________
-const iconDown = document.querySelectorAll('.iconDown')
-iconDown.forEach(icon => {
-  icon.addEventListener('click', (event) => {
+const buttonDropdown = document.querySelectorAll('.dropdown__button')
+buttonDropdown.forEach(button => {
+  button.addEventListener('click', (event) => {
     openDropdown(event)
   })
 })
+
+// const dropdowns = document.querySelectorAll('.dropdown')
+// dropdowns.forEach(dropdown => {
+//   dropdown.addEventListener('click', (event) => {
+//     openDropdown(event)
+//   })
+// })
+
 
 const iconUp = document.querySelectorAll('.iconUp')
 iconUp.forEach(icon => {
@@ -27,12 +35,12 @@ iconUp.forEach(icon => {
   })
 })
 
-const labelDropdown = document.querySelectorAll('.dropdown__form__label')
-labelDropdown.forEach(label => {
-  label.addEventListener('click', (event) => {
-    openDropdown(event)
-  })
-})
+// const labelDropdown = document.querySelectorAll('.dropdown__form__label')
+// labelDropdown.forEach(label => {
+//   label.addEventListener('click', (event) => {
+//     openDropdown(event)
+//   })
+// })
 
 // recherche dans le champ de recherche principal _________________
 const mainInput = document.getElementById('search')

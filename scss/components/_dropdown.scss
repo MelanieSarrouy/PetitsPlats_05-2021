@@ -6,11 +6,11 @@
   margin-right: 1.25rem;
   border-radius: .5rem;
   margin-bottom: 1.2rem;
-  padding: 1.5rem;
   z-index: 3;
   @include respond-to(small-screen) {
     width: 100%;
     margin-right: 0rem;
+    align-items: flex-start;
   }
   &--ingredients {
     background-color: $color-ingredients;
@@ -21,32 +21,56 @@
   &--ustensiles {
     background-color: $color-ustensiles;
   }
-  &:hover, &:focus {
+  &:hover {
     box-shadow: .1rem .1rem .4rem rgba(0, 0, 0, 0.35);
   }
-
-  &__form {
-    padding: 0 1rem;
-    display: flex; 
+  &__button {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    color: white;
+    font-family: $font-family-main;
+    font-size: 1.15rem;
+    min-width: 11.5rem;
+
+    &--ingredients {
+      background-color: $color-ingredients;
+    }
+    &--appareil {
+      background-color: $color-appareil;
+    }
+    &--ustensiles {
+      background-color: $color-ustensiles;
+    }
+    @include respond-to(small-screen) {
+      width: 100%;
+      margin-right: 0rem;
+    }
+  }
+  &__form {
+    display: none; 
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     position: relative;
     overflow: hidden;
-
     &__label {
       color: white;
       font-size: 1.15rem;
-      // position: absolute;
       cursor: text;
+      padding: 1rem 1rem 1rem 0;
     }
     &__input {
       font-family: $font-family-main;
       font-size: 1.15rem;
       color: white;
-      outline: none;
       border: none;
+      outline: none;
       width: 100%;
-      padding: 0;
+      padding: 0 1.5rem;
       appearance: none;
       &--ingredients {
         background-color: $color-ingredients;
@@ -74,7 +98,6 @@
         @include respond-to(small-screen) {
           content: 'Rechercher';
         }
-      
       }
     }
     &__icon {
@@ -83,6 +106,8 @@
       background-color: $color-ingredients;
       color: white;
       font-size: 1.15rem;
+      padding: 1.5rem;
+      border-radius: .5rem;
       &--ingredients {
         background-color: $color-ingredients;
       }
@@ -97,22 +122,26 @@
   &__menu {
     display: none;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 2.5rem;
+    column-gap: 3.5rem;
     color: white;
     font-size: 1.15rem;
     line-height: 2.2rem;
     max-width: 667px;
     overflow: hidden;
     box-sizing: border-box;
-    padding-top: 1rem;
-    @include respond-to(large-screen) {
+    padding: 0 1.5rem 1.5rem;
+    @include respond-to(xl-screen) {
       grid-template-columns: repeat(2, 1fr);
+      column-gap: 2.5rem;
+    }
+    @include respond-to(large-screen) {
+      grid-template-columns: repeat(1, 1fr);
       column-gap: 1.5rem;
     }
     @include respond-to(small-screen) {
+      grid-template-columns: repeat(2, 1fr);
       align-items: start;
     }
-
     @include respond-to(verysmall-screen) {
       grid-template-columns: 1fr;
     }
@@ -123,9 +152,6 @@
       cursor: pointer;
     }
   }
-}
-.iconUp {
-  display: none;
 }
 input:placeholder-shown {
   text-overflow: ellipsis;
