@@ -32,7 +32,7 @@
           <label for="search" class="header2__form__label"></label>
           <input type="search" name="recherche" id="search" class="header2__form__input" minlength="3" maxlength="70"
             placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette" />
-          <button type="button" name="rechercher" id="bouton-rechercher" class="header2__form__button">
+          <button type="button" name="rechercher" id="bouton-rechercher" class="header2__form__button" tabindex="-1">
             <span class="iconrechercher"><i class="fas fa-search"></i></span>
           </button>
         </form> 
@@ -48,8 +48,8 @@
             </button>
             <form method="GET" id="searchIngredients" class="dropdown__form" onsubmit="return false">
               <label for="ingredients" class="dropdown__form__label sr-only">Ingredients</label>
-              <input type="search" name="ingredients" id="ingredients" class="dropdown__form__input dropdown__form__input--ingredients" size="1"/>
-              <div class="dropdown__form__icon dropdown__form__icon--ingredients iconUp" id="iconUp-ingredients"><i class="fas fa-chevron-up"></i></div>
+              <input type="search" name="ingredients" id="ingredients" class="dropdown__form__input dropdown__form__input--ingredients" placeholder="Rechercher un ingrédient" />
+              <button class="dropdown__form__icon dropdown__form__icon--ingredients iconUp" id="iconUp-ingredients" tabindex="0"><i class="fas fa-chevron-up"></i></button>
             </form> 
             <ul class="dropdown__menu" id="menu-ingredients"></ul>
           </div>
@@ -59,8 +59,8 @@
             </button>
             <form method="GET" id="searchAppareil" class="dropdown__form" onsubmit="return false">
               <label for="appareil" class="dropdown__form__label sr-only">Appareils</label>
-              <input type="search" name="appareil" id="appareil" class="dropdown__form__input dropdown__form__input--appareil" size="1"/>
-              <div class="dropdown__form__icon dropdown__form__icon--appareil iconUp" id="iconUp-appareil"><i class="fas fa-chevron-up"></i></div>
+              <input type="search" name="appareil" id="appareil" class="dropdown__form__input dropdown__form__input--appareil" placeholder="Rechercher un appareil" />
+              <div class="dropdown__form__icon dropdown__form__icon--appareil iconUp" id="iconUp-appareil" tabindex="0"><i class="fas fa-chevron-up"></i></div>
             </form> 
             <ul class="dropdown__menu" id="menu-appareil"></ul>
           </div>
@@ -70,8 +70,8 @@
             </button>
             <form method="GET" id="searchUstensiles" class="dropdown__form" onsubmit="return false">
               <label for="ustensiles" class="dropdown__form__label sr-only">Ustensiles</label>
-              <input type="search" name="ustensiles" id="ustensiles" class="dropdown__form__input dropdown__form__input--ustensiles" size="1"/>
-              <div class="dropdown__form__icon dropdown__form__icon--ustensiles iconUp" id="iconUp-ustensiles"><i class="fas fa-chevron-up"></i></div>
+              <input type="search" name="ustensiles" id="ustensiles" class="dropdown__form__input dropdown__form__input--ustensiles" placeholder="Rechercher un ustensile" />
+              <div class="dropdown__form__icon dropdown__form__icon--ustensiles iconUp" id="iconUp-ustensiles" tabindex="0"><i class="fas fa-chevron-up"></i></div>
             </form> 
             <ul class="dropdown__menu" id="menu-ustensiles"></ul>
           </div>

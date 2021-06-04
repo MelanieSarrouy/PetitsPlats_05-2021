@@ -140,13 +140,85 @@ function createItem(elements, ul) {
     const li = new Element('li', 'li', 'dropdown__menu__item').elem
     ul.appendChild(li)
     li.textContent = `${elements[t]}`
-    li.addEventListener('click', () => displayElementSelected())
-    arrayTags.forEach(tag => {
-      if (tag.textContent == li.textContent) {
-        li.style.color = 'rgba(255, 255, 255, 0.4)'
-        li.style.textDecoration = 'line-through'
+    li.tabIndex = '0'
+    li.addEventListener('click', () => displayElementSelected()) // affichage des tags
+    li.addEventListener('keydown', (e) => {
+      const keyCode = e.code
+      if (keyCode === 'Enter') {
+        displayElementSelected() // affichage des tags
       }
     })
+    styleLiTaged(arrayTags, li) // style des éléments taggés
+  }
+  navigationWithArrows(ul) // navigation au clavier (flèches)
+}
+
+//_________________________________________________________________
+/**
+ * @function styleLiTaged
+ * changement des styles et attributs des éléments taggés
+ * @param {Array} array - Array de tous les tags
+ * @param {HTMLElement} li - élément de la liste
+ */
+
+function styleLiTaged(array, li) {
+  array.forEach(tag => {
+    if (tag.textContent == li.textContent) {
+      li.style.color = 'rgba(255, 255, 255, 0.4)'
+      li.style.textDecoration = 'line-through'
+      li.tabIndex = '-1'
+    }
+  })
+}
+
+//_________________________________________________________________
+/**
+ * @function navigationWithArrows
+ * fonction permettant la navigation au clavier 
+ * (avec les flèches gauche et droite) au niveau des listes
+ * @param {HTMLElement} ul - ul conteneur de la liste  
+ */
+function navigationWithArrows(ul) {
+  const children = ul.children
+  const allLi = Array.from(children)
+  allLi.forEach(li => {
+    li.addEventListener('keydown', (e) => {
+      const keyCode = e.key
+      if (keyCode === 'ArrowRight') {
+        nextSibling(li)
+      } else if (keyCode === 'ArrowLeft') {
+        previousSibling(li)
+      } 
+    })
+  })
+}
+/**
+ * @function nextSibling
+ * déplacement vers élément (li) suivant
+ * @param {HTMLElement} li - élément de la liste 
+ */
+function nextSibling(li) {
+  const next = li.nextSibling
+  const ul = li.parentNode
+  if (next != null) {
+    next.focus()
+  } else {
+    ul.firstChild.focus()
+  }
+}
+/**
+ * @function previousSibling
+ * déplacement vers élément (li) précédent
+ * @param {HTMLElement} li - élément de la liste  
+ */
+function previousSibling(li) {
+  const prev = li.previousSibling
+  const ul = li.parentNode
+  if (prev != null) {
+    prev.focus()
+  } else {
+    console.log(ul.lastChild)
+    ul.lastChild.focus()
   }
 }
 
@@ -176,7 +248,7 @@ function dynamicChoices() {
 //_________________________________________________________________
 /**
  * @function adjustDropdownDisplay
- * 
+ * affichage dans la liste des éléments contenant la saisie de l'input
  * @param {Array} elements - allIngredients ou allAppliance ou allUstensils   
  * @param {HTMLElement} ul - ul conteneur de la liste  
  * @param {String} entry - saisie dans les inputs dropdown

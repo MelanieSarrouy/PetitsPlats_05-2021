@@ -20,13 +20,13 @@ function openDropdown(event) {
   let dropdownChildren = dropdown.children
   form = dropdownChildren[1]
   let id = searchNodeId(buttonOpen)
-  placeholder(id)
   const ul = document.getElementById(id)
   buttonOpen.style.display = 'none'
   form.style.display = 'flex'
   ul.style.display = 'grid'
   const formChildren = form.children
   const input = formChildren[1]
+  input.focus()
   dynamicChoices()
 
   input.addEventListener('input', (event) => {
@@ -124,28 +124,6 @@ function searchNodeId(element) {
   } 
 }
 
-//_________________________________________________________________
-/**
- * @function placeholder
- * fonction pour afficher le bon placeholder à l'ouverture de la dropdown
- * @param {String} id 
- */
-
-function placeholder(id) {
-  let input
-  if (id == 'menu-ingredients') {
-    input = document.getElementById('ingredients')
-    input.placeholder = 'Rechercher un ingrédient'
-  }
-  if (id == 'menu-appareil') {
-    input = document.getElementById('appareil')
-    input.placeholder = 'Rechercher un appareil'
-  }
-  if (id == 'menu-ustensiles') {
-    input = document.getElementById('ustensiles')
-    input.placeholder = 'Rechercher un ustensile'
-  }
-}
 
 // EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
 export { openDropdown, closeDropdown }

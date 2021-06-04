@@ -23,12 +23,15 @@ function displayElementSelected() {
   buttonOpen.style.display = 'flex'
   form.style.display = 'none'
   ulTarget.style.display = 'none'
-
+  dropdown.classList.remove('open')
   const li = new Element('li', 'li', 'elements__item').elem
   ul.appendChild(li)
   li.textContent = content
+  li.tabIndex = '0'
+  li.focus()
   const icon = new Element('icon', 'i', 'far').elem
   icon.classList.add('fa-times-circle', 'elements__item__icon')
+  icon.tabIndex = '0'
   li.appendChild(icon)
   let allLi = ul.children
   twinSearch(allLi, li)
@@ -40,6 +43,13 @@ function displayElementSelected() {
   displayResultnumber(filteredRecipes)
 
   icon.addEventListener('click', () => closeSelectedBloc())
+  icon.addEventListener('keydown', (e) => {
+    const keyCode = e.code
+    if (keyCode === 'Enter') {
+      closeSelectedBloc()
+    }
+  })
+
 }
 
 //_________________________________________________________________

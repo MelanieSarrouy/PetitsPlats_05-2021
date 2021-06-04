@@ -27,7 +27,6 @@ buttonDropdown.forEach(button => {
 //   })
 // })
 
-
 const iconUp = document.querySelectorAll('.iconUp')
 iconUp.forEach(icon => {
   icon.addEventListener('click', () => {
