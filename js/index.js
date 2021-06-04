@@ -20,12 +20,6 @@ buttonDropdown.forEach(button => {
   })
 })
 
-// const dropdowns = document.querySelectorAll('.dropdown')
-// dropdowns.forEach(dropdown => {
-//   dropdown.addEventListener('click', (event) => {
-//     openDropdown(event)
-//   })
-// })
 
 const iconUp = document.querySelectorAll('.iconUp')
 iconUp.forEach(icon => {
@@ -34,12 +28,13 @@ iconUp.forEach(icon => {
   })
 })
 
-// const labelDropdown = document.querySelectorAll('.dropdown__form__label')
-// labelDropdown.forEach(label => {
-//   label.addEventListener('click', (event) => {
-//     openDropdown(event)
-//   })
-// })
+const allButtonClose = document.querySelectorAll('.dropdown__form__icon')
+allButtonClose.forEach(button => {
+  button.addEventListener('click', () => {
+    closeDropdown()
+  })
+})
+
 
 // recherche dans le champ de recherche principal _________________
 const mainInput = document.getElementById('search')

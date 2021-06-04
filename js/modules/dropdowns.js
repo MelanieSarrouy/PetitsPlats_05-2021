@@ -24,8 +24,10 @@ function openDropdown(event) {
   buttonOpen.style.display = 'none'
   form.style.display = 'flex'
   ul.style.display = 'grid'
+  ul.style.transform = 'scaleY(1)'
   const formChildren = form.children
   const input = formChildren[1]
+  const buttonClose = formChildren[2]
   input.focus()
   dynamicChoices()
 
@@ -34,6 +36,13 @@ function openDropdown(event) {
   })
   
   onlyOneDropdownOpen(buttonOpen)
+
+  dropdown.addEventListener('keydown', (e) => {
+    const keyCode = e.code
+    if (keyCode === 'Escape') {
+      close(buttonClose)
+    }
+  })
 }
 
 //_________________________________________________________________

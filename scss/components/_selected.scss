@@ -13,15 +13,24 @@
     margin-right: .6rem;
     margin-bottom: .6rem;
     background-color: $color-ingredients;
+    &:focus {
+      outline-color: #2766c1;
+    }
   }
   &:nth-child(2n) {
     & li {
       background-color: $color-appareil;
+      &:focus {
+        outline-color: #4fa37c;
+      }
     }
   }
   &:nth-child(3n) {
     & li {
       background-color: $color-ustensiles;
+      &:focus {
+        outline-color: #b34b3f;
+      }
     }
   }
 }
@@ -30,4 +39,10 @@
   padding: .2rem;
   padding-left: 1rem;
   cursor: pointer;
+  &:hover, &:focus {
+    outline: none;
+    transform: scale(1.3);
+    transition: transform 0.3s ease-in-out;
+  }
+
 }

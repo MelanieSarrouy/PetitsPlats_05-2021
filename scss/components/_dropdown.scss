@@ -35,14 +35,23 @@
     font-family: $font-family-main;
     font-size: 1.15rem;
     min-width: 11.5rem;
-    &--ingredients {
+    &--ingredients {      
       background-color: $color-ingredients;
+      &:focus {
+        outline-color: #2766c1;
+      }
     }
     &--appareil {
       background-color: $color-appareil;
+      &:focus {
+        outline-color: #4fa37c;
+      }
     }
     &--ustensiles {
       background-color: $color-ustensiles;
+      &:focus {
+        outline-color: #b34b3f;
+      }
     }
     @include respond-to(small-screen) {
       width: 100%;
@@ -129,6 +138,8 @@
     overflow: hidden;
     box-sizing: border-box;
     padding: 0 1.5rem 1.5rem;
+    transform-origin: top center;
+    animation: listes 500ms cubic-bezier(.47,.28,.4,.99);
     @include respond-to(xl-screen) {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 2.5rem;
@@ -149,6 +160,15 @@
       text-overflow: ellipsis ;
       overflow: hidden;
       cursor: pointer;
+      border-bottom: rgba(0, 0, 0, 0) solid 0.05rem;
+      &:hover, &:focus {
+        outline: none;
+        border-bottom: white solid 0.05rem;
+        transform: scale(1.1);
+        opacity: 0.8;
+        transform-origin: left center;
+        transition: transform opacity 200ms ease;
+      }
     }
   }
 }
