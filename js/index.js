@@ -3,6 +3,7 @@ import { openDropdown, closeDropdown } from './modules/dropdowns.js'
 import { noDuplicateDropdownsElements } from './modules/contentsOfDropdowns.js'
 import { recipes } from './modules/recipes.js'
 import { testInput } from './modules/input.js'
+import { concatenationOfRecipes } from './modules/concatenation.js'
 //_________________________________________________________________
 
 
@@ -80,10 +81,18 @@ function recipesDisplayed() {
         displayedRecipes.push(recipes[i])
       }
     }
-  }) 
+  })
+  displayedRecipes = simpleRecipes(displayedRecipes) 
   return displayedRecipes
 }
-
-
+let allRecipes = simpleRecipes(recipes)
+function simpleRecipes(param) {
+  let array = []
+  for (let i = 0; i < param.length; i++) {
+    let recipe = concatenationOfRecipes(param[i])
+    array.push(recipe)
+  }
+  return array
+}
 //_________________________________________________________________
-export { recipesDisplayed, displayResultnumber }
+export { recipesDisplayed, displayResultnumber, allRecipes }

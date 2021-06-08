@@ -1,7 +1,8 @@
 import { recipes } from './recipes.js'
-import { concatenationOfRecipes } from './concatenation.js'
+// import { concatenationOfRecipes } from './concatenation.js'
 import { createACard } from './createACard.js'
 import { noDuplicateDropdownsElements } from './contentsOfDropdowns.js'
+// import { allRecipes } from '../index.js'
 //_________________________________________________________________
 
 /** 
@@ -9,18 +10,18 @@ import { noDuplicateDropdownsElements } from './contentsOfDropdowns.js'
  * fonction popur trouver les recettes contenant le(s) mot(s) saisi(s) + le(s) tag(s) eventuel(s)
  * dans les recettes affichées ou l'ensemble des recettes
  * @param {Array} array - array des mots saisis + tags
- * @param {Array} someRecipes - array des recttes affichées ou de toutes les recettes
+ * @param {Array} array2 - array des recttes affichées ou de toutes les recettes
  */
 
-function findRecipes(array, someRecipes) {
+function findRecipes(array, array2) {
   const section = document.querySelector('.section')
   let recipesSelected = []
   let index = 0
-  for (let i = 0; i < someRecipes.length; i++) {
-    let recipe = concatenationOfRecipes(someRecipes[i])
+  for (let i = 0; i < array2.length; i++) {
+    let recipe = array2[i]
     let counter = matchingWords(array, recipe)
     if (counter === array.length) {
-      recipesSelected.push(someRecipes[i])
+      recipesSelected.push(recipes[i])
       index++
     }
   }

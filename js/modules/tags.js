@@ -1,4 +1,4 @@
-import { recipesDisplayed, displayResultnumber } from '../index.js'
+import { recipesDisplayed, displayResultnumber, allRecipes } from '../index.js'
 import { recipes } from './recipes.js'
 import { findRecipes } from './findRecipes.js'
 import { Element } from './element.js'
@@ -42,9 +42,9 @@ function displayElementSelected() {
   let filteredRecipes = recipesDisplayed()
   const section = document.querySelector('.section')
   if (section.style.display === 'grid') {
-    findRecipes(allTags, filteredRecipes)
+    findRecipes(allTags, allRecipes)
   } else {
-    findRecipes(allTags, recipes)
+    findRecipes(allTags, allRecipes)
     const mainInput = document.getElementById('search')
     mainInput.value = ''
   }

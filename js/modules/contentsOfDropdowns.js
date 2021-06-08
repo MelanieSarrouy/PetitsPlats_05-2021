@@ -246,4 +246,4 @@ function previousSibling(li) {
 
 
 //_________________________________________________________________
-export { noDuplicateDropdownsElements, sortAndDisplayItems,   allIngredients, allUstensils, allAppliance }
+export { noDuplicateDropdownsElements, sortAndDisplayItems, allIngredients, allUstensils, allAppliance }

@@ -1,8 +1,8 @@
-import { recipes } from './recipes.js'
+// import { recipes } from './recipes.js'
 import { normalizeAndLowerCase, clean } from './normalize.js'
 import { findRecipes } from './findRecipes.js'
 import { findTagsDisplayed } from './tags.js'
-import { recipesDisplayed, displayResultnumber } from '../index.js'
+import { recipesDisplayed, displayResultnumber, allRecipes } from '../index.js'
 //_________________________________________________________________
 
 /**
@@ -27,7 +27,7 @@ function testInput(event) {
   mainInput.addEventListener('keyup', (e) => {
     const keyCode = e.code
     if (keyCode === 'Backspace' || keyCode === 'Delete') {
-      findRecipes(allTags, recipes)
+      findRecipes(allTags, allRecipes)
       filterdRecipes = recipesDisplayed()
       displayResultnumber(filterdRecipes)
     }
@@ -46,7 +46,8 @@ function testInput(event) {
     })
     allTags = [...new Set(allTags)]
     filterdRecipes = recipesDisplayed()
-    findRecipes(allTags, filterdRecipes)
+    
+    findRecipes(allTags, allRecipes)
     filterdRecipes = recipesDisplayed()
     displayResultnumber(filterdRecipes)
   }
