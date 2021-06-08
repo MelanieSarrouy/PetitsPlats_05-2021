@@ -33,3 +33,12 @@ h1 {
 button {
   cursor: pointer;
 }
+input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+input:focus-visible {
+  outline: none;
+}
+button:focus-visible {
+  outline: none;
+}

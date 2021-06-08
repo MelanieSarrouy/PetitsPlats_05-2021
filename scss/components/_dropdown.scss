@@ -1,18 +1,16 @@
 .dropdown {
-  // width: 10.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-right: 1.25rem;
   border-radius: .5rem;
   margin-bottom: 1.2rem;
-  overflow: hidden;
-  padding: 1.5rem;
   z-index: 3;
   @include respond-to(small-screen) {
     width: 100%;
     margin-right: 0rem;
+    align-items: flex-start;
   }
   &--ingredients {
     background-color: $color-ingredients;
@@ -23,24 +21,67 @@
   &--ustensiles {
     background-color: $color-ustensiles;
   }
-  &__form {
-    padding: 0 1rem;
-    display: flex; 
+  &:hover {
+    box-shadow: .1rem .1rem .4rem rgba(0, 0, 0, 0.35);
+  }
+  &__button {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    color: white;
+    font-family: $font-family-main;
+    font-size: 1.15rem;
+    min-width: 11.5rem;
+    &--ingredients {      
+      background-color: $color-ingredients;
+      &:focus {
+        outline: solid 0.15rem #2766c1;
+      }
+    }
+    &--appareil {
+      background-color: $color-appareil;
+      &:focus {
+        outline: solid 0.15rem #4fa37c;
+      }
+    }
+    &--ustensiles {
+      background-color: $color-ustensiles;
+      &:focus {
+        outline: solid 0.15rem #b34b3f;
+      }
+    }
+    @include respond-to(small-screen) {
+      width: 100%;
+      margin-right: 0rem;
+    }
+  }
+  &__form {
+    display: none; 
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+    &__label {
+      color: white;
+      font-size: 1.15rem;
+      cursor: text;
+      padding: 1rem 1rem 1rem 0;
+    }
     &__input {
       font-family: $font-family-main;
       font-size: 1.15rem;
       color: white;
-      outline: none;
       border: none;
       width: 100%;
-      padding: 0;
-      appearance: none;
+      padding: 0 0 0 1.5rem;
       &--ingredients {
         background-color: $color-ingredients;
       }
-      &--appareil {
+      &--appareil {   
         background-color: $color-appareil;
       }
       &--ustensiles {
@@ -50,50 +91,81 @@
         font-family: $font-family-main;
         color: white;
         font-size: 1.15rem;
-        opacity: 1;
+        opacity: 0.5;
+        @include respond-to(small-screen) {
+          content: 'Rechercher';
+        }
       }
     }
     &__icon {
       border: none;
       cursor: pointer;
-      background-color: $color-ingredients;
       color: white;
       font-size: 1.15rem;
+      padding: 1.5rem;
+      border-radius: .5rem;
       &--ingredients {
         background-color: $color-ingredients;
+        &:focus {
+          background-color: #2766c1;
+        }
       }
       &--appareil {
         background-color: $color-appareil;
+        &:focus {
+          background-color: #4fa37c;
+        }
       }
       &--ustensiles {
         background-color: $color-ustensiles;
+        &:focus {
+          background-color: #b34b3f;
+        }
       }
     }
   }
   &__menu {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-flow: column;
-    column-gap: 1.5rem;
+    column-gap: 3.5rem;
     color: white;
     font-size: 1.15rem;
     line-height: 2.2rem;
     max-width: 667px;
     overflow: hidden;
     box-sizing: border-box;
+    padding: 0 1.5rem 1.5rem;
+    transform-origin: top center;
+    animation: listes 500ms cubic-bezier(.47,.28,.4,.99);
+    @include respond-to(xl-screen) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2.5rem;
+    }
+    @include respond-to(large-screen) {
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 1.5rem;
+    }
     @include respond-to(small-screen) {
-      display: flex;
-      flex-direction: column;
-      align-self: flex-start;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+    @include respond-to(verysmall-screen) {
+      grid-template-columns: 1fr;
     }
     &__item {
       white-space: nowrap;
       text-overflow: ellipsis ;
       overflow: hidden;
       cursor: pointer;
+      border-bottom: rgba(0, 0, 0, 0) solid 0.05rem;
+      &:hover, &:focus {
+        outline: none;
+        border-bottom: white solid 0.05rem;
+        transform: scale(1.1);
+        opacity: 0.8;
+        transform-origin: left center;
+        transition: transform opacity 200ms ease;
+      }
     }
   }
-}
-.iconUp {
-  display: none;
 }

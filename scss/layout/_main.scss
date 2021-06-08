@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  &__result {
+    padding-bottom: .5rem;
+    &__bold {
+      font-weight: 700;
+    }
+  }
   &__form {
     display: flex;
     justify-content: space-between;
@@ -12,16 +18,23 @@
       width: 100%;
       background-color: $color-bg;
       border: none;
-      padding: 1.4rem 4rem 1.5rem 1.3rem;
+      padding: 1.4rem 4.5rem 1.5rem 1.3rem;
       border-radius: .3rem;
       font-size: 1.12rem;
       font-family: $font-family-main;
-      outline: none;
       margin-bottom: 1.2rem;
+      appearance: none;
+      &:hover {
+        background-color: $color-bg;
+        box-shadow: .15rem .15rem .45rem rgba(0, 0, 0, 0.20);
+      }
+      &:focus {
+        outline: solid 0.15rem #C7BEBE;
+      }
     }
     &__button {
       position: absolute;
-      right: 0rem;
+      right: 0.2rem;
       top: 1rem;
       border: none;
       background-color: $color-bg;
@@ -34,9 +47,9 @@
   &__filters {
     display: flex;
     align-items: flex-start;
-    flex-wrap: wrap;
     @include respond-to(small-screen) {
-      grid-template-columns: 1fr
+    flex-wrap: wrap;
+
     }
   }
   &__selected {
@@ -51,7 +64,7 @@
 }
 .section {
   position: absolute;
-  top: 14.5rem;
+  top: 16.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
@@ -66,10 +79,8 @@
 
   }
   @include respond-to (small-screen) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
     position: relative;
     top: 0.3rem;
   }

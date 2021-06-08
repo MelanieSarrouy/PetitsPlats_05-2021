@@ -4,6 +4,15 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
+  &__link {
+    transform: scale(1);
+    transition: transfrom 2000ms ease-in-out;
+    &:hover, &:focus {
+      outline: none;
+      transform: scale(1.15);
+      transition: transfrom 2000ms ease-in-out;
+    }
+  }
   &__title {
     font-family: $font-family-title;
     font-size: 2.25rem;

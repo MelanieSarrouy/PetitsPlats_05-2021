@@ -17,6 +17,11 @@
       @content;
     }
   }
+  @if $media == xl-screen {
+    @media all and (max-width: $xl-screen) {
+      @content;
+    }
+  }
 }
 @mixin line-clamp($lines, $line-height) {
   display: block;
