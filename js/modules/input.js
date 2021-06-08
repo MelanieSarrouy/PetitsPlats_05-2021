@@ -1,8 +1,6 @@
 import { recipes } from './recipes.js'
-import { normalizeAndLowerCase } from './normalize.js'
+import { normalizeAndLowerCase, clean } from './normalize.js'
 import { findRecipes } from './findRecipes.js'
-import { createACard } from './createACard.js'
-import { noDuplicateIngredients, noDuplicateAppliances, noDuplicateUstensils } from './contentsOfDropdowns.js'
 import { findTagsDisplayed } from './tags.js'
 import { recipesDisplayed, displayResultnumber } from '../index.js'
 //_________________________________________________________________
@@ -14,37 +12,46 @@ import { recipesDisplayed, displayResultnumber } from '../index.js'
  * @param {MouseEvent} event 
  */
 
+
 function testInput(event) {
   event.preventDefault
-  const section = document.querySelector('.section')
   const mainInput = document.getElementById('search')
   const entry = mainInput.value
   let allTags = findTagsDisplayed()
   let filterdRecipes
+  /**
+   * EventListener sur évènement 'keyup' de l'input principal touches de suppression),
+   * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
+   * et pas seulement les recettes affichées
+   */ 
+  mainInput.addEventListener('keyup', (e) => {
+    const keyCode = e.code
+    if (keyCode === 'Backspace' || keyCode === 'Delete') {
+      findRecipes(allTags, recipes)
+      filterdRecipes = recipesDisplayed()
+      displayResultnumber(filterdRecipes)
+    }
+  })
+  /**
+   * si la saisie est supérieure ou égale à 3 caractères alors allTags (mots à chercher)
+   * est modifié et la @function findRecipes effectue la recherche de correspondances 
+   * uniquement sur les recettes affichées
+   */ 
   if (entry.length >= 3) {
     let inputText = normalizeAndLowerCase(entry)
-    let arrayEntry = inputText.split(' ')
+    let array = inputText.split(' ')
+    let arrayEntry = clean(array)
     arrayEntry.forEach(elem => {
       allTags.push(elem)
     })
-    findRecipes(allTags, recipes)
+    allTags = [...new Set(allTags)]
+    filterdRecipes = recipesDisplayed()
+    findRecipes(allTags, filterdRecipes)
     filterdRecipes = recipesDisplayed()
     displayResultnumber(filterdRecipes)
-  } 
-  if (entry.length < 3 && allTags.length != 0) {
-    findRecipes(allTags, recipes)
-    filterdRecipes = recipesDisplayed()
-    displayResultnumber(filterdRecipes)
-  } 
-  if (entry.length < 3 && allTags.length == 0) {
-    section.innerHTML = ''
-    createACard(recipes)
-    noDuplicateIngredients(recipes)
-    noDuplicateAppliances(recipes)
-    noDuplicateUstensils(recipes)
-    displayResultnumber(recipes)
   }
 }
 
-// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
+
+//_________________________________________________________________
 export { testInput }

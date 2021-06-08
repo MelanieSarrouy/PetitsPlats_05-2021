@@ -23,12 +23,13 @@
       font-size: 1.12rem;
       font-family: $font-family-main;
       margin-bottom: 1.2rem;
+      appearance: none;
       &:hover {
         background-color: $color-bg;
         box-shadow: .15rem .15rem .45rem rgba(0, 0, 0, 0.20);
       }
       &:focus {
-        outline-color: #C7BEBE;
+        outline: solid 0.15rem #C7BEBE;
       }
     }
     &__button {

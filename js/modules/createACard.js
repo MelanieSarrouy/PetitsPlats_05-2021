@@ -151,5 +151,6 @@ function displayUnit(unit, quantityNb, quantity) {
   }
 }
 
-// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
+
+//_________________________________________________________________
 export { createACard }

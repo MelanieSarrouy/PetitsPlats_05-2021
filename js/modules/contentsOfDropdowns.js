@@ -1,11 +1,34 @@
 import { displayElementSelected } from './tags.js'
-import { normalizeAndLowerCase } from './normalize.js'
 import { Element } from './element.js'
 //_________________________________________________________________
 
 let allIngredients
 let allAppliance
 let allUstensils
+
+//_________________________________________________________________
+/**
+ * @function noDuplicateDropdownsElements
+ * fonction de non duplication des éléments dans chaque dropdown
+ * @param {Array} param - recettes
+ */
+
+function noDuplicateDropdownsElements(param) {
+  allIngredients = noDuplicateIngredients(param)
+  const ulMenuIngredients = document.getElementById('menu-ingredients')
+  ulMenuIngredients.innerHTML = ''
+  sortAndDisplayItems(allIngredients, ulMenuIngredients)
+
+  allAppliance = noDuplicateAppliances(param) 
+  const ulMenuAppliances = document.getElementById('menu-appareil')
+  ulMenuAppliances.innerHTML = ''
+  sortAndDisplayItems(allAppliance, ulMenuAppliances)
+
+  allUstensils = noDuplicateUstensils(param) 
+  const ulMenuUstensils = document.getElementById('menu-ustensiles')
+  ulMenuUstensils.innerHTML = ''
+  sortAndDisplayItems(allUstensils, ulMenuUstensils)
+}
 
 //_________________________________________________________________
 /**
@@ -26,10 +49,7 @@ function noDuplicateIngredients(param) {
     arrayIngredients.forEach(ingr => ALLelements.push(ingr))
   }
   let allElementsUnique = [...new Set(ALLelements)]
-  allIngredients = allElementsUnique
-  const ul = document.getElementById('menu-ingredients')
-  ul.innerHTML = ''
-  sortAndDisplayItems(allIngredients, ul)
+  return allElementsUnique
 }
 
 //_________________________________________________________________
@@ -46,10 +66,7 @@ function noDuplicateAppliances(param) {
     ALLelements.push(applianceRecipe)
   }
   let allElementsUnique = [...new Set(ALLelements)]
-  allAppliance = allElementsUnique
-  const ul = document.getElementById('menu-appareil')
-  ul.innerHTML = ''
-  sortAndDisplayItems(allAppliance, ul)
+  return allElementsUnique
 }
 
 //_________________________________________________________________
@@ -68,15 +85,13 @@ function noDuplicateUstensils(param) {
       let oneUstensil = ustensil
       arrayUstensils.push(oneUstensil)
     }
-    arrayUstensils.forEach(ingr => ALLelements.push(ingr))
+    arrayUstensils.forEach(ust => ALLelements.push(ust))
   }
   let allElementsUnique = [...new Set(ALLelements)]
-  allUstensils = allElementsUnique
-  const ul = document.getElementById('menu-ustensiles')
-  ul.innerHTML = ''
-  sortAndDisplayItems(allUstensils, ul)
+  return allElementsUnique
 }
 
+//_________________________________________________________________
 //_________________________________________________________________
 /**
  * @function sortAndDisplayItems
@@ -141,6 +156,11 @@ function createItem(elements, ul) {
     ul.appendChild(li)
     li.textContent = `${elements[t]}`
     li.tabIndex = '0'
+    /**
+     * EventListener sur évènements 'click' et 'keydown' des li, 
+     * lancement de la @function displayElementSelected qui permet
+     * l'affichage en tags des éléments li séléctionnés
+     */ 
     li.addEventListener('click', () => displayElementSelected()) // affichage des tags
     li.addEventListener('keydown', (e) => {
       const keyCode = e.code
@@ -153,6 +173,7 @@ function createItem(elements, ul) {
   navigationWithArrows(ul) // navigation au clavier (flèches)
 }
 
+//_________________________________________________________________
 //_________________________________________________________________
 /**
  * @function styleLiTaged
@@ -171,6 +192,7 @@ function styleLiTaged(array, li) {
   })
 }
 
+//_________________________________________________________________
 //_________________________________________________________________
 /**
  * @function navigationWithArrows
@@ -222,69 +244,6 @@ function previousSibling(li) {
   }
 }
 
-//_________________________________________________________________
-/**
- * @function dynamicChoices
- * fonction d'affichage des éléments en fonction de la saisie dans les inputs des dropdowns
- */
-
-function dynamicChoices() {
-  const input = window.event.target
-  const entry = input.value
-  if (input.id == 'ingredients') {
-    const ul = document.getElementById('menu-ingredients')
-    adjustDropdownDisplay(allIngredients, ul, entry)
-  }
-  if (input.id == 'appareil') {
-    const ul = document.getElementById('menu-appareil')
-    adjustDropdownDisplay(allAppliance, ul, entry)
-  }
-  if (input.id == 'ustensiles') {
-    const ul = document.getElementById('menu-ustensiles')
-    adjustDropdownDisplay(allUstensils, ul, entry)
-  }
-}
 
 //_________________________________________________________________
-/**
- * @function adjustDropdownDisplay
- * affichage dans la liste des éléments contenant la saisie de l'input
- * @param {Array} elements - allIngredients ou allAppliance ou allUstensils   
- * @param {HTMLElement} ul - ul conteneur de la liste  
- * @param {String} entry - saisie dans les inputs dropdown
- */
-
-function adjustDropdownDisplay(elements, ul, entry) {
-  if (entry.length >= 1) {
-    let inputText = normalizeAndLowerCase(entry)
-    let relatedItems = compareElementsAndEntry(inputText, elements)
-    ul.innerHTML = ''
-    sortAndDisplayItems(relatedItems, ul)
-  } else {
-    ul.innerHTML = ''
-    sortAndDisplayItems(elements, ul)
-  }
-}
-
-//_________________________________________________________________
-/**
- * @function compareElementsAndEntry
- * fonction permettant de n'afficher que les éléments correspondants à la saisie
- * @param {String} entry - saisie dans les inputs dropdown
- * @param {Array} elements - allIngredients ou allAppliance ou allUstensils   
- * @returns {Array} - array des éléments correspondants à la saisie
- */
-
-function compareElementsAndEntry(entry, elements) {
-  let relatedItems = []
-  for (let i = 0; i < elements.length; i++) {
-    let ingredient = normalizeAndLowerCase(elements[i])
-    if (ingredient.search(entry) != -1) {
-      relatedItems.push(elements[i])
-    }
-  }
-  return relatedItems
-}
-
-// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
-export { noDuplicateIngredients, noDuplicateAppliances, noDuplicateUstensils, dynamicChoices }
+export { noDuplicateDropdownsElements, sortAndDisplayItems,   allIngredients, allUstensils, allAppliance }

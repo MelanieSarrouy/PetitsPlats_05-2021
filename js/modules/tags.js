@@ -19,6 +19,9 @@ function displayElementSelected() {
   const dropdown = ulTarget.parentNode
   const children = dropdown.children
   const form = children[1]
+  const formChildren = form.children
+  const input = formChildren[1]
+  input.value = ''
   const buttonOpen = children[0]
   buttonOpen.style.display = 'flex'
   form.style.display = 'none'
@@ -37,11 +40,21 @@ function displayElementSelected() {
   twinSearch(allLi, li)
   let allTags = findTagsDisplayed()
   let filteredRecipes = recipesDisplayed()
-
-  findRecipes(allTags, filteredRecipes)
+  const section = document.querySelector('.section')
+  if (section.style.display === 'grid') {
+    findRecipes(allTags, filteredRecipes)
+  } else {
+    findRecipes(allTags, recipes)
+    const mainInput = document.getElementById('search')
+    mainInput.value = ''
+  }
   filteredRecipes = recipesDisplayed()
   displayResultnumber(filteredRecipes)
-
+  /**
+   * EventListener sur évènements 'click' et 'keydown' des icones de fermeture des tags, 
+   * lancement de la @function closeSelectedBloc qui permet
+   * de fermer le(s) tag(s)
+   */ 
   icon.addEventListener('click', () => closeSelectedBloc())
   icon.addEventListener('keydown', (e) => {
     const keyCode = e.code
@@ -161,5 +174,6 @@ function closeSelectedBloc() {
   displayResultnumber(filteredRecipes)
 }
 
-// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
+
+//_________________________________________________________________
 export { displayElementSelected, findTagsDisplayed }

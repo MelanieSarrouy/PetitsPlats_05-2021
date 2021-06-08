@@ -1,4 +1,4 @@
-import { dynamicChoices } from './contentsOfDropdowns.js'
+import { dynamicChoices } from './dynamicChoices.js'
 //_________________________________________________________________
 
 /**
@@ -30,13 +30,20 @@ function openDropdown(event) {
   const buttonClose = formChildren[2]
   input.focus()
   dynamicChoices()
-
+  /**
+   * EventListener sur évènement 'input' des inputs, 
+   * lancement de la @function dynamicChoices qui permet
+   * l'affichage des éléments en fonction des la saisie
+   */ 
   input.addEventListener('input', (event) => {
     dynamicChoices(event)
   })
-  
   onlyOneDropdownOpen(buttonOpen)
-
+  /**
+   * EventListener sur évènement 'keydown' des dropdowns, 
+   * si keyCode = 'Escape', alors
+   * lancement de la @function close qui ferme la dropdown
+   */ 
   dropdown.addEventListener('keydown', (e) => {
     const keyCode = e.code
     if (keyCode === 'Escape') {
@@ -62,12 +69,12 @@ function onlyOneDropdownOpen(elem) {
   arrayDropdowns.forEach(dropdown => {
     if (dropdown != dropdownTarget) {
       if (dropdown.classList.contains('open') == true) {
-        let children = dropdown.children
-        let form = children[1]
-        let formChildren = form.children
-        let divClose = formChildren[2]
-        let divCloseChild = divClose.children
-        let chevronUp = divCloseChild[0]
+        const children = dropdown.children
+        const form = children[1]
+        const formChildren = form.children
+        const divClose = formChildren[2]
+        const divCloseChild = divClose.children
+        const chevronUp = divCloseChild[0]
         close(chevronUp)
       }
     }
@@ -134,5 +141,5 @@ function searchNodeId(element) {
 }
 
 
-// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
+//_________________________________________________________________
 export { openDropdown, closeDropdown }

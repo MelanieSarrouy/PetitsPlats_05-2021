@@ -1,4 +1,11 @@
-// Fonction de 'nettoyage' de la saisie (minuscules sans accents)
+//_________________________________________________________________
+
+/**
+ * @function normalizeAndLowerCase
+ * transforme la string : minuscules, sans accents
+ * @param {String} param 
+ * @returns {String}
+ */
 function normalizeAndLowerCase(param) {
   let a = param.normalize('NFD')
   a = replacements(a)
@@ -12,5 +19,19 @@ function replacements(str) {
   return c
 }
 
-// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
-export { normalizeAndLowerCase }
+//_________________________________________________________________
+/**
+ * @function clean
+ * exclue certains 'petits' mots inutiles pour la recherche dans le tableau des mots-clés/tags
+ * @param {Array} array 
+ * @returns {Array}
+ */
+function clean(array) {
+  const wordsToExclude = ['et', 'aux', 'd\'', 'au', 'de', 'des', 'la', 'le', 'les', 'du', 'en', 'ou', 'l\'', 'a', 'un', 'une', 'avec']
+  let arrayEntry = array.filter(x => !wordsToExclude.includes(x))
+  return arrayEntry
+}
+
+
+//_________________________________________________________________
+export { normalizeAndLowerCase, clean }

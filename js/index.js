@@ -1,6 +1,6 @@
 import { createACard } from './modules/createACard.js'
 import { openDropdown, closeDropdown } from './modules/dropdowns.js'
-import { noDuplicateIngredients, noDuplicateAppliances, noDuplicateUstensils } from './modules/contentsOfDropdowns.js'
+import { noDuplicateDropdownsElements } from './modules/contentsOfDropdowns.js'
 import { recipes } from './modules/recipes.js'
 import { testInput } from './modules/input.js'
 //_________________________________________________________________
@@ -8,9 +8,7 @@ import { testInput } from './modules/input.js'
 
 // Affichage des recettes _________________________________________
 createACard(recipes)
-noDuplicateIngredients(recipes)
-noDuplicateAppliances(recipes)
-noDuplicateUstensils(recipes)
+noDuplicateDropdownsElements(recipes)
 
 // Ouverture et fermeture des dropdowns ___________________________
 const buttonDropdown = document.querySelectorAll('.dropdown__button')
@@ -38,13 +36,12 @@ allButtonClose.forEach(button => {
 
 // recherche dans le champ de recherche principal _________________
 const mainInput = document.getElementById('search')
-const buttonsearch = document.getElementById('bouton-rechercher')
 
-buttonsearch.addEventListener('click', (event) => {
-  testInput(event)
-})
 mainInput.addEventListener('input', (event) => {
+  let t0 = performance.now()
   testInput(event)
+  let t1 = performance.now()
+  console.log((t1 - t0) + ' millisecondes.')
 })
 
 
@@ -88,5 +85,5 @@ function recipesDisplayed() {
 }
 
 
-// EXPORTS // _____ // EXPORTS //  _____ // EXPORTS //  ___________
+//_________________________________________________________________
 export { recipesDisplayed, displayResultnumber }

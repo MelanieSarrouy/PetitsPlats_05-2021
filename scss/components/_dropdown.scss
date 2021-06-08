@@ -38,19 +38,19 @@
     &--ingredients {      
       background-color: $color-ingredients;
       &:focus {
-        outline-color: #2766c1;
+        outline: solid 0.15rem #2766c1;
       }
     }
     &--appareil {
       background-color: $color-appareil;
       &:focus {
-        outline-color: #4fa37c;
+        outline: solid 0.15rem #4fa37c;
       }
     }
     &--ustensiles {
       background-color: $color-ustensiles;
       &:focus {
-        outline-color: #b34b3f;
+        outline: solid 0.15rem #b34b3f;
       }
     }
     @include respond-to(small-screen) {
@@ -76,27 +76,16 @@
       font-size: 1.15rem;
       color: white;
       border: none;
-      outline: none;
       width: 100%;
       padding: 0 0 0 1.5rem;
-      appearance: none;
       &--ingredients {
         background-color: $color-ingredients;
-        &:hover, &:focus {
-          background-color: $color-ingredients;
-        }
       }
-      &--appareil {
+      &--appareil {   
         background-color: $color-appareil;
-        &:hover, &:focus {
-          background-color: $color-appareil;
-        }
       }
       &--ustensiles {
         background-color: $color-ustensiles;
-        &:hover, &:focus {
-          background-color: $color-ustensiles;
-        }
       }
       &::placeholder {
         font-family: $font-family-main;
@@ -111,19 +100,27 @@
     &__icon {
       border: none;
       cursor: pointer;
-      background-color: $color-ingredients;
       color: white;
       font-size: 1.15rem;
       padding: 1.5rem;
       border-radius: .5rem;
       &--ingredients {
         background-color: $color-ingredients;
+        &:focus {
+          background-color: #2766c1;
+        }
       }
       &--appareil {
         background-color: $color-appareil;
+        &:focus {
+          background-color: #4fa37c;
+        }
       }
       &--ustensiles {
         background-color: $color-ustensiles;
+        &:focus {
+          background-color: #b34b3f;
+        }
       }
     }
   }
@@ -172,6 +169,4 @@
     }
   }
 }
-input:placeholder-shown {
-  text-overflow: ellipsis;
-}
+
