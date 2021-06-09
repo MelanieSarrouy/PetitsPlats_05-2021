@@ -86,8 +86,15 @@ function recipesDisplayed() {
   return displayedRecipes
 }
 
+//_________________________________________________________________
 let allRecipes = simpleRecipes(recipes)
 
+/**
+ * @function simpleRecipes
+ * les valeurs des recettes sont concaténées et stringifiées
+ * @param {Array} param 
+ * @returns {Array}
+ */
 function simpleRecipes(param) {
   let array = []
   for (let i = 0; i < param.length; i++) {
