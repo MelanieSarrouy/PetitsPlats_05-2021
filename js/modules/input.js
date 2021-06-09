@@ -45,16 +45,10 @@ function testInput(event) {
       allTags.push(elem)
     })
     allTags = [...new Set(allTags)]
-    filterdRecipes = recipesDisplayed()
-    
     findRecipes(allTags, allRecipes)
     filterdRecipes = recipesDisplayed()
     displayResultnumber(filterdRecipes)
-  } else {
-    findRecipes(allTags, allRecipes)
-    filterdRecipes = recipesDisplayed()
-    displayResultnumber(filterdRecipes)
-  }
+  } 
 }
 
 

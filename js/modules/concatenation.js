@@ -1,4 +1,4 @@
-import { normalizeAndLowerCase, clean } from './normalize.js'
+import { normalizeAndLowerCase } from './normalize.js'
 //_________________________________________________________________
 
 /**
@@ -17,11 +17,7 @@ function concatenationOfRecipes(recipe) {
   let arrayUstensils = recoveryUstensils(recipe)
   let ustensils = arrayUstensils.toString()
   let recipeString = name + ' ' + appliance + ' ' +  description + ' ' +  ingredients + ' ' +  ustensils
-  let arrayRecipe = recipeString.split(' ')
-  let arrayRecipeCleaned = clean(arrayRecipe)
-  let arrayRecipeSimple = [...new Set(arrayRecipeCleaned)]
-  let string = arrayRecipeSimple.toString()
-  return string
+  return recipeString
 }
 
 /**
