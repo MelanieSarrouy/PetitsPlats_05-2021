@@ -85,7 +85,9 @@ function recipesDisplayed() {
   displayedRecipes = simpleRecipes(displayedRecipes) 
   return displayedRecipes
 }
+
 let allRecipes = simpleRecipes(recipes)
+
 function simpleRecipes(param) {
   let array = []
   for (let i = 0; i < param.length; i++) {

@@ -50,6 +50,10 @@ function testInput(event) {
     findRecipes(allTags, allRecipes)
     filterdRecipes = recipesDisplayed()
     displayResultnumber(filterdRecipes)
+  } else {
+    findRecipes(allTags, allRecipes)
+    filterdRecipes = recipesDisplayed()
+    displayResultnumber(filterdRecipes)
   }
 }
 
