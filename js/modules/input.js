@@ -12,7 +12,6 @@ import { recipesDisplayed, displayResultnumber } from '../index.js'
  * @param {MouseEvent} event 
  */
 
-
 function testInput(event) {
   event.preventDefault
   const mainInput = document.getElementById('search')
@@ -20,17 +19,15 @@ function testInput(event) {
   let allTags = findTagsDisplayed()
   let filterdRecipes
   /**
-   * EventListener sur évènement 'keyup' de l'input principal touches de suppression),
+   * EventListener sur évènement 'keyup' de l'input principal (touches de suppression),
    * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
    * et pas seulement les recettes affichées
    */ 
   mainInput.addEventListener('keyup', (e) => {
     const keyCode = e.code
     if (keyCode === 'Backspace' || keyCode === 'Delete') {
-      findRecipes(allTags, recipes)
-      filterdRecipes = recipesDisplayed()
-      displayResultnumber(filterdRecipes)
-    }
+      result(allTags, recipes)
+    }    
   })
   /**
    * si la saisie est supérieure ou égale à 3 caractères alors allTags (mots à chercher)
@@ -46,12 +43,35 @@ function testInput(event) {
     })
     allTags = [...new Set(allTags)]
     filterdRecipes = recipesDisplayed()
-    findRecipes(allTags, filterdRecipes)
-    filterdRecipes = recipesDisplayed()
-    displayResultnumber(filterdRecipes)
-  }
+    result(allTags, filterdRecipes)
+  } 
+  // else {
+
+  //   allTags = findTagsDisplayed()
+  //   console.log(allTags)
+  // }
 }
 
+//_________________________________________________________________
+/**
+ * EventListener sur évènement 'keyup' de l'input principal (touche Escape),
+ * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
+ * et pas seulement les recettes affichées
+ */ 
+const mainInput = document.getElementById('search')
+mainInput.addEventListener('keyup', (e) => {
+  const keyCode = e.code
+  if (keyCode === 'Escape') {
+    let allTags = findTagsDisplayed()
+    result(allTags, recipes)
+  }
+})
+
+function result(tags, someRecipes) {
+  findRecipes(tags, someRecipes)
+  let filterdRecipes = recipesDisplayed()
+  displayResultnumber(filterdRecipes)
+}
 
 //_________________________________________________________________
-export { testInput }
+export { testInput, result }

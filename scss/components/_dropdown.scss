@@ -24,6 +24,7 @@
   &:hover {
     box-shadow: .1rem .1rem .4rem rgba(0, 0, 0, 0.35);
   }
+  // boutons des dropdowns //
   &__button {
     display: flex;
     justify-content: space-between;
@@ -58,6 +59,7 @@
       margin-right: 0rem;
     }
   }
+  // form des dropdowns //
   &__form {
     display: none; 
     justify-content: space-between;
@@ -124,6 +126,7 @@
       }
     }
   }
+  // ul et li des dropdowns //
   &__menu {
     display: none;
     grid-template-columns: repeat(3, 1fr);

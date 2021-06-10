@@ -18,30 +18,40 @@
   </head>
 
   <body>
+    <!-- header -->
     <header class="header">
       <a href="index.html" class="header__link" aria-label="Page d'accueil Les Petits Plats">
         <img src="./images/logo.svg" class="header__link__img" alt="logo Les Petits Plats" width="51" height="47">
       </a>
       <h1 class="header__title">Les Petits Plats</h1>
     </header>
+
+    <!-- main -->
     <main class="main">
+
+      <!-- header du main -->
       <header class="header2">
         <p class="header2__result"><span class="header2__result__bold"></span></p>
 
+        <!-- form : recherche principale -->
         <form method="GET" id="recherche" class="header2__form" onsubmit="return false">
           <label for="search" class="header2__form__label"></label>
           <input type="search" name="recherche" id="search" class="header2__form__input" minlength="3" maxlength="70"
             placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette" />
-          <button type="button" name="rechercher" id="bouton-rechercher" class="header2__form__button" tabindex="-1">
-            <span class="iconrechercher"><i class="fas fa-search"></i></span>
-          </button>
-        </form> 
-        <div class="header2__selected" >
+          <span class="iconrechercher"><i class="fas fa-search"></i></span>
+        </form>
+
+        <!-- tags selectionnés -->
+        <div class="header2__selected">
           <ul class="elements elements--ingredients"></ul>
           <ul class="elements elements--appareil" ></ul>
           <ul class="elements elements--ustensiles" ></ul>
         </div>
+
+        <!-- filtres : recherche avancée -->
         <div class="header2__filters">
+
+          <!-- filtre : recherche par ingrédients -->
           <div class="dropdown dropdown--ingredients">
             <button class="dropdown__button dropdown__button--ingredients" id="iconDown-ingredients" tabindex="0">Ingrédients
               <i class="dropdown__button__icon fas fa-chevron-down"></i>
@@ -53,6 +63,8 @@
             </form> 
             <ul class="dropdown__menu" id="menu-ingredients"></ul>
           </div>
+
+          <!-- filtre : recherche par appareils -->
           <div class="dropdown dropdown--appareil">
             <button class="dropdown__button dropdown__button--appareil" id="iconDown-appareil" tabindex="0">Appareils
               <i class="dropdown__button__icon fas fa-chevron-down"></i>
@@ -64,6 +76,8 @@
             </form> 
             <ul class="dropdown__menu" id="menu-appareil"></ul>
           </div>
+
+          <!-- filtre : recherche par ustensiles -->
           <div class="dropdown dropdown--ustensiles">
             <button class="dropdown__button dropdown__button--ustensiles" id="iconDown-ustensiles" tabindex="0">Ustensiles
               <i class="dropdown__button__icon fas fa-chevron-down"></i>
@@ -78,14 +92,13 @@
         </div>      
 
       </header>
+
+      <!-- section : affichage dynamique des recettes -->
       <section class="section">
         <h2 class="sr-only">Recettes</h2>
-
-
       </section>
+
     </main>
-
-
 
     <script type="module" src="js/index.js"></script>
 

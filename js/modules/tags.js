@@ -3,6 +3,7 @@ import { recipes } from './recipes.js'
 import { findRecipes } from './findRecipes.js'
 import { Element } from './element.js'
 import { normalizeAndLowerCase } from './normalize.js'
+import { result } from './input.js'
 //_________________________________________________________________
 
 /**
@@ -39,17 +40,15 @@ function displayElementSelected() {
   let allLi = ul.children
   twinSearch(allLi, li)
   let allTags = findTagsDisplayed()
-  let filteredRecipes = recipesDisplayed()
   const section = document.querySelector('.section')
   if (section.style.display === 'grid') {
-    findRecipes(allTags, filteredRecipes)
+    let filteredRecipes = recipesDisplayed()
+    result(allTags, filteredRecipes)
   } else {
-    findRecipes(allTags, recipes)
+    result(allTags, recipes)
     const mainInput = document.getElementById('search')
     mainInput.value = ''
   }
-  filteredRecipes = recipesDisplayed()
-  displayResultnumber(filteredRecipes)
   /**
    * EventListener sur évènements 'click' et 'keydown' des icones de fermeture des tags, 
    * lancement de la @function closeSelectedBloc qui permet
