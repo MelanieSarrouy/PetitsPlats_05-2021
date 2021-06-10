@@ -1,8 +1,6 @@
 import { recipes } from './recipes.js'
-// import { concatenationOfRecipes } from './concatenation.js'
 import { createACard } from './createACard.js'
 import { noDuplicateDropdownsElements } from './contentsOfDropdowns.js'
-// import { allRecipes } from '../index.js'
 //_________________________________________________________________
 
 /** 
@@ -17,8 +15,6 @@ function findRecipes(array, array2) {
   const section = document.querySelector('.section')
   let recipesSelected = []
   let index = 0
-  console.log(array)
-  console.log(array2)
   for (let i = 0; i < array2.length; i++) {
     let recipe = array2[i]
     let counter = matchingWords(array, recipe)
