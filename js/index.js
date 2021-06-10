@@ -44,6 +44,10 @@ mainInput.addEventListener('input', (event) => {
   console.log((t1 - t0) + ' millisecondes.')
 })
 
+mainInput.addEventListener('focus', (event) => {
+  testInput(event)
+})
+
 
 //_________________________________________________________________
 /**
