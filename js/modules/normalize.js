@@ -27,7 +27,7 @@ function replacements(str) {
  * @returns {Array}
  */
 function clean(array) {
-  const wordsToExclude = ['et', 'aux', 'd\'', 'au', 'de', 'des', 'la', 'le', 'les', 'du', 'en', 'ou', 'l\'', 'a', 'un', 'une', 'avec']
+  const wordsToExclude = ['et', 'aux', 'd\'', 'au', 'de', 'la', 'le', 'du', 'en', 'ou', 'l\'', 'a', 'un', 'une', 'avec']
   let arrayEntry = array.filter(x => !wordsToExclude.includes(x))
   return arrayEntry
 }

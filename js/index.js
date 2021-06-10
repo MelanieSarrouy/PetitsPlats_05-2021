@@ -50,7 +50,6 @@ mainInput.addEventListener('focus', (event) => {
 })
 
 
-
 //_________________________________________________________________
 /**
  * @function displayResultnumber
