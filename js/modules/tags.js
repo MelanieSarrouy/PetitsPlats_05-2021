@@ -39,6 +39,12 @@ function displayElementSelected() {
   let allLi = ul.children
   twinSearch(allLi, li)
   let allTags = findTagsDisplayed()
+  const mainInput = document.getElementById('search')
+  const entry = mainInput.value
+  const arrayEntry = entry.split(' ')
+  arrayEntry.forEach(word => {
+    allTags.push(word)
+  })
   let filteredRecipes = recipesDisplayed()
   const section = document.querySelector('.section')
   if (section.style.display === 'grid') {
