@@ -2,6 +2,7 @@ import { recipesDisplayed, displayResultnumber, allRecipes } from '../index.js'
 import { findRecipes } from './findRecipes.js'
 import { Element } from './element.js'
 import { normalizeAndLowerCase } from './normalize.js'
+import { result } from './input.js'
 //_________________________________________________________________
 
 /**
@@ -44,17 +45,15 @@ function displayElementSelected() {
   arrayEntry.forEach(word => {
     allTags.push(word)
   })
-  let filteredRecipes = recipesDisplayed()
   const section = document.querySelector('.section')
   if (section.style.display === 'grid') {
-    findRecipes(allTags, allRecipes)
+    result(allTags, allRecipes)
   } else {
-    findRecipes(allTags, allRecipes)
+    allTags = findTagsDisplayed()
+    result(allTags, allRecipes)
     const mainInput = document.getElementById('search')
     mainInput.value = ''
   }
-  filteredRecipes = recipesDisplayed()
-  displayResultnumber(filteredRecipes)
   /**
    * EventListener sur évènements 'click' et 'keydown' des icones de fermeture des tags, 
    * lancement de la @function closeSelectedBloc qui permet

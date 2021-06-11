@@ -18,7 +18,6 @@ function testInput(event) {
   const mainInput = document.getElementById('search')
   const entry = mainInput.value
   let allTags = findTagsDisplayed()
-  let filterdRecipes
   /**
    * EventListener sur évènement 'keyup' de l'input principal touches de suppression),
    * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
@@ -27,9 +26,7 @@ function testInput(event) {
   mainInput.addEventListener('keyup', (e) => {
     const keyCode = e.code
     if (keyCode === 'Backspace' || keyCode === 'Delete') {
-      findRecipes(allTags, allRecipes)
-      filterdRecipes = recipesDisplayed()
-      displayResultnumber(filterdRecipes)
+      result(allTags, allRecipes)
     }
   })
   /**
@@ -45,12 +42,48 @@ function testInput(event) {
       allTags.push(elem)
     })
     allTags = [...new Set(allTags)]
-    findRecipes(allTags, allRecipes)
-    filterdRecipes = recipesDisplayed()
-    displayResultnumber(filterdRecipes)
+    result(allTags, allRecipes)
   } 
 }
 
+//_________________________________________________________________
+/**
+ * EventListener sur évènement 'keyup' de l'input principal (touche Escape),
+ * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
+ * et pas seulement les recettes affichées
+ */ 
+const mainInput = document.getElementById('search')
+mainInput.addEventListener('keyup', (e) => {
+  const keyCode = e.code
+  if (keyCode === 'Escape') {
+    let allTags = findTagsDisplayed()
+    result(allTags, allRecipes)
+  }
+})
 
 //_________________________________________________________________
-export { testInput }
+/**
+ * EventListener sur évènement 'dblclick' de l'input principal,
+ * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
+ * et pas seulement les recettes affichées
+ */ 
+mainInput.addEventListener('dblclick', () => {
+  let allTags = findTagsDisplayed()
+  result(allTags, allRecipes)
+})
+
+//_________________________________________________________________
+/**
+ * @function result
+ * trouve les correspondance entre tags/saisie et recettes et affiche le résultat
+ * @param {Array} tags 
+ * @param {Array} someRecipes 
+ */
+function result(tags, someRecipes) {
+  findRecipes(tags, someRecipes)
+  let filterdRecipes = recipesDisplayed()
+  displayResultnumber(filterdRecipes)
+}
+
+//_________________________________________________________________
+export { testInput, result }

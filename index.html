@@ -18,7 +18,6 @@
   </head>
 
   <body>
-
     <!-- header -->
     <header class="header">
       <a href="index.html" class="header__link" aria-label="Page d'accueil Les Petits Plats">
@@ -35,17 +34,15 @@
         <p class="header2__result"><span class="header2__result__bold"></span></p>
 
         <!-- form : recherche principale -->
-        <form method="GET" id="recherche" class="header2__form" onsubmit="return false">
-          <label for="search" class="header2__form__label"></label>
+        <form method="GET" action="" id="recherche" class="header2__form" onsubmit="return false">
+          <label for="search" class="header2__form__label sr-only">Rechercher un ingrédient, appareil, ustensile ou une recette</label>
           <input type="search" name="recherche" id="search" class="header2__form__input" minlength="3" maxlength="70"
             placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette" />
-          <button type="button" name="rechercher" id="bouton-rechercher" class="header2__form__button" tabindex="-1">
-            <span class="iconrechercher"><i class="fas fa-search"></i></span>
-          </button>
-        </form> 
+          <span class="iconrechercher"><i class="fas fa-search"></i></span>
+        </form>
 
         <!-- tags selectionnés -->
-        <div class="header2__selected" >
+        <div class="header2__selected">
           <ul class="elements elements--ingredients"></ul>
           <ul class="elements elements--appareil" ></ul>
           <ul class="elements elements--ustensiles" ></ul>
@@ -56,39 +53,39 @@
 
           <!-- filtre : recherche par ingrédients -->
           <div class="dropdown dropdown--ingredients">
-            <button class="dropdown__button dropdown__button--ingredients" id="iconDown-ingredients" tabindex="0">Ingrédients
+            <button type="button" class="dropdown__button dropdown__button--ingredients" id="iconDown-ingredients" tabindex="0">Ingrédients
               <i class="dropdown__button__icon fas fa-chevron-down"></i>
             </button>
             <form method="GET" id="searchIngredients" class="dropdown__form" onsubmit="return false">
               <label for="ingredients" class="dropdown__form__label sr-only">Ingredients</label>
               <input type="search" name="ingredients" id="ingredients" class="dropdown__form__input dropdown__form__input--ingredients" placeholder="Rechercher un ingrédient" />
-              <button class="dropdown__form__icon dropdown__form__icon--ingredients iconUp" id="iconUp-ingredients" tabindex="0"><i class="fas fa-chevron-up"></i></button>
+              <button class="dropdown__form__icon dropdown__form__icon--ingredients iconUp" id="iconUp-ingredients" tabindex="0" aria-label="fermeture de la dropdown"><i class="fas fa-chevron-up"></i></button>
             </form> 
             <ul class="dropdown__menu" id="menu-ingredients"></ul>
           </div>
 
           <!-- filtre : recherche par appareils -->
           <div class="dropdown dropdown--appareil">
-            <button class="dropdown__button dropdown__button--appareil" id="iconDown-appareil" tabindex="0">Appareils
+            <button type="button" class="dropdown__button dropdown__button--appareil" id="iconDown-appareil" tabindex="0">Appareils
               <i class="dropdown__button__icon fas fa-chevron-down"></i>
             </button>
             <form method="GET" id="searchAppareil" class="dropdown__form" onsubmit="return false">
               <label for="appareil" class="dropdown__form__label sr-only">Appareils</label>
               <input type="search" name="appareil" id="appareil" class="dropdown__form__input dropdown__form__input--appareil" placeholder="Rechercher un appareil" />
-              <button class="dropdown__form__icon dropdown__form__icon--appareil iconUp" id="iconUp-appareil" tabindex="0"><i class="fas fa-chevron-up"></i></button>
+              <button class="dropdown__form__icon dropdown__form__icon--appareil iconUp" id="iconUp-appareil" tabindex="0" aria-label="fermeture de la dropdown"><i class="fas fa-chevron-up"></i></button>
             </form> 
             <ul class="dropdown__menu" id="menu-appareil"></ul>
           </div>
 
           <!-- filtre : recherche par ustensiles -->
           <div class="dropdown dropdown--ustensiles">
-            <button class="dropdown__button dropdown__button--ustensiles" id="iconDown-ustensiles" tabindex="0">Ustensiles
+            <button type="button" class="dropdown__button dropdown__button--ustensiles" id="iconDown-ustensiles" tabindex="0">Ustensiles
               <i class="dropdown__button__icon fas fa-chevron-down"></i>
             </button>
             <form method="GET" id="searchUstensiles" class="dropdown__form" onsubmit="return false">
               <label for="ustensiles" class="dropdown__form__label sr-only">Ustensiles</label>
               <input type="search" name="ustensiles" id="ustensiles" class="dropdown__form__input dropdown__form__input--ustensiles" placeholder="Rechercher un ustensile" />
-              <button class="dropdown__form__icon dropdown__form__icon--ustensiles iconUp" id="iconUp-ustensiles" tabindex="0"><i class="fas fa-chevron-up"></i></button>
+              <button class="dropdown__form__icon dropdown__form__icon--ustensiles iconUp" id="iconUp-ustensiles" tabindex="0" aria-label="fermeture de la dropdown"><i class="fas fa-chevron-up"></i></button>
             </form> 
             <ul class="dropdown__menu" id="menu-ustensiles"></ul>
           </div>
@@ -100,10 +97,8 @@
       <section class="section">
         <h2 class="sr-only">Recettes</h2>
       </section>
-      
+
     </main>
-
-
 
     <script type="module" src="js/index.js"></script>
 
