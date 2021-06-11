@@ -45,11 +45,6 @@ function testInput(event) {
     filterdRecipes = recipesDisplayed()
     result(allTags, filterdRecipes)
   } 
-  // else {
-
-  //   allTags = findTagsDisplayed()
-  //   console.log(allTags)
-  // }
 }
 
 //_________________________________________________________________
@@ -66,7 +61,25 @@ mainInput.addEventListener('keyup', (e) => {
     result(allTags, recipes)
   }
 })
+//_________________________________________________________________
+/**
+ * EventListener sur évènement 'dblclick' de l'input principal,
+ * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
+ * et pas seulement les recettes affichées
+ */ 
 
+mainInput.addEventListener('dblclick', () => {
+  let allTags = findTagsDisplayed()
+  result(allTags, recipes)
+})
+
+//_________________________________________________________________
+/**
+ * @function result
+ * trouve les correspondance entre tags/saisie et recettes et affiche le résultat
+ * @param {Array} tags 
+ * @param {Array} someRecipes 
+ */
 function result(tags, someRecipes) {
   findRecipes(tags, someRecipes)
   let filterdRecipes = recipesDisplayed()
