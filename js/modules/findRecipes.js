@@ -15,10 +15,6 @@ function findRecipes(array, array2) {
   const section = document.querySelector('.section')
   let recipesSelected = []
   let index = 0
-  const mainInput = document.getElementById('search')
-  const entry = mainInput.value
-  console.log(entry)
-
   for (let i = 0; i < array2.length; i++) {
     let recipe = array2[i]
     let counter = matchingWords(array, recipe)
@@ -27,8 +23,6 @@ function findRecipes(array, array2) {
       index++
     }
   }
-  console.log(array)
-
   section.innerHTML = ''
   createACard(recipesSelected)
   noDuplicateDropdownsElements(recipesSelected)
