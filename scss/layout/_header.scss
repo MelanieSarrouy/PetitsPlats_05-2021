@@ -1,16 +1,20 @@
 .header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding-bottom: 2rem;
   &__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transform: scale(1);
+    transform-origin: center center;
     transition: transfrom 2000ms ease-in-out;
     &:hover, &:focus {
       outline: none;
-      transform: scale(1.15);
+      transform: scale(1.05);
       transition: transfrom 2000ms ease-in-out;
+    }
+    &__img {
+      width: auto;
     }
   }
   &__title {

@@ -69,14 +69,14 @@
   position: absolute;
   top: 16.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   column-gap: 4%;
   row-gap: 3rem;
   width: 100%;
   padding-bottom: 3rem;
   @include respond-to (large-screen) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     row-gap: 2rem;
   }
