@@ -38,10 +38,7 @@ allButtonClose.forEach(button => {
 const mainInput = document.getElementById('search')
 
 mainInput.addEventListener('input', (event) => {
-  let t0 = performance.now()
   testInput(event)
-  let t1 = performance.now()
-  console.log((t1 - t0) + ' millisecondes.')
 })
 
 mainInput.addEventListener('focus', (event) => {
