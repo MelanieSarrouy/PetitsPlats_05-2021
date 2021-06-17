@@ -44,7 +44,9 @@ function testInput(event) {
     allTags = [...new Set(allTags)]
     filterdRecipes = recipesDisplayed()
     result(allTags, filterdRecipes)
-  } 
+  } else {
+    result(allTags, recipes)
+  }
 }
 
 //_________________________________________________________________
@@ -60,17 +62,6 @@ mainInput.addEventListener('keyup', (e) => {
     let allTags = findTagsDisplayed()
     result(allTags, recipes)
   }
-})
-//_________________________________________________________________
-/**
- * EventListener sur évènement 'dblclick' de l'input principal,
- * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
- * et pas seulement les recettes affichées
- */ 
-
-mainInput.addEventListener('dblclick', () => {
-  let allTags = findTagsDisplayed()
-  result(allTags, recipes)
 })
 
 //_________________________________________________________________

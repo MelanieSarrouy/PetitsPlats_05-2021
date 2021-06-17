@@ -41,11 +41,6 @@ mainInput.addEventListener('input', (event) => {
   testInput(event)
 })
 
-mainInput.addEventListener('focus', (event) => {
-  testInput(event)
-})
-
-
 //_________________________________________________________________
 /**
  * @function displayResultnumber
