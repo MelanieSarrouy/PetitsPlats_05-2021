@@ -1,5 +1,4 @@
-import { recipesDisplayed, displayResultnumber, allRecipes } from '../index.js'
-import { findRecipes } from './findRecipes.js'
+import { allRecipes } from '../index.js'
 import { Element } from './element.js'
 import { normalizeAndLowerCase } from './normalize.js'
 import { result } from './input.js'
@@ -173,9 +172,7 @@ function closeSelectedBloc() {
       allTags.push(elem)
     })
   }
-  findRecipes(allTags, allRecipes)
-  let filteredRecipes = recipesDisplayed()
-  displayResultnumber(filteredRecipes)
+  result(allTags, allRecipes)
 }
 
 

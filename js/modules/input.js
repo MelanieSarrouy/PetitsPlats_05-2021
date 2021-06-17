@@ -63,17 +63,6 @@ mainInput.addEventListener('keyup', (e) => {
 
 //_________________________________________________________________
 /**
- * EventListener sur évènement 'dblclick' de l'input principal,
- * lancement de la @function findRecipes avec une recherche sur l'ensemble des recettes 
- * et pas seulement les recettes affichées
- */ 
-mainInput.addEventListener('dblclick', () => {
-  let allTags = findTagsDisplayed()
-  result(allTags, allRecipes)
-})
-
-//_________________________________________________________________
-/**
  * @function result
  * trouve les correspondance entre tags/saisie et recettes et affiche le résultat
  * @param {Array} tags 
